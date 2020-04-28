@@ -5,14 +5,12 @@ namespace Wingsuit {
 
     // Initial position
     let position = 0;
-    let gravity = 2;
-    let gravity2 = 2;
+    let gravity = .4;
+    let gravity2 = .4;
     import Vector2D = Vector.Vector2D;
-
 
     window.addEventListener("load", init);
     window.addEventListener("mousemove", trackMouseMove);
-
 
     let vPull: Vector2D = new Vector2D(0, 0);
     let vPull2: Vector2D = new Vector2D(0, 0);
@@ -34,6 +32,8 @@ namespace Wingsuit {
 
     let i: number = 0;
     let canvas: HTMLCanvasElement;
+
+    let frameCounter: number = 0;
 
     function init(_event: Event): void {
         canvas = document.querySelector("canvas");
@@ -90,14 +90,13 @@ namespace Wingsuit {
     }
 
     function moveBall() {
-
         vPull = vBall.getDiff(vPointer);
-        vPull.x *= -1 / 50;
-        vPull.y *= -1 / 50;
+        vPull.x *= -1 / 40;
+        vPull.y *= -1 / 40;
 
         vPull2 = vBall2.getDiff(vBall);
-        vPull2.x *= -1 / 50;
-        vPull2.y *= -1 / 50;
+        vPull2.x *= -1 / 40;
+        vPull2.y *= -1 / 40;
 
         vPull3.x = vPull2.x / -1;
         vPull3.y = vPull2.y / -1;
@@ -119,14 +118,42 @@ namespace Wingsuit {
         vSpeed.subtract(vFriction);
         vSpeed2.subtract(vFriction2);
 
-        vBall.add(vSpeed);
+        /*if (vBall.x >= canvas.width / 2 || vBall.x <= -canvas.width / 2) {
+            vSpeed.x *= -1;
+        } else
+            if (vBall.y >= canvas.height / 2 || vBall.y <= -canvas.height / 2) {
+                vSpeed.y *= -1;
+            } else {
+                vSpeed.add(vPull);
+            }
+        
+
+        if (vBall2.x >= canvas.width / 2 || vBall2.x <= -canvas.width / 2) {
+            vSpeed2.x *= -1;
+        } else
+            if (vBall2.y >= canvas.height / 2 || vBall2.y <= -canvas.height / 2) {
+                vSpeed2.y *= -1;
+            } else {
+                vSpeed2.add(vPull2);
+            }
+       
+
+        if (vBall.x > canvas.width / 1.9 || vBall.x <= -canvas.width / 1.9 || vBall.y > canvas.height / 1.9 || vBall.y <= -canvas.height / 1.9) {
+            vBall.x = xMouse;
+            vBall.y = yMouse;
+        }
+
+        if (vBall2.x > canvas.width / 1.9 || vBall2.x <= -canvas.width / 1.9 || vBall2.y > canvas.height / 1.9 || vBall2.y <= -canvas.height / 1.9) {
+            vBall2.x = xMouse;
+            vBall2.y = yMouse;
+        }
+*/
+       
         vBall2.add(vSpeed2);
-
+        vBall.add(vSpeed);
         console.log(vPointer, vPull, vSpeed, vBall, vFriction);
+
     }
-
-
-
 
     function drawPull(_width: number): void {
         crc2.beginPath();
@@ -146,19 +173,27 @@ namespace Wingsuit {
         crc2.stroke();
     }
 
+    function drawText(currFrame: number) {
+        var gradient = crc2.createLinearGradient(0, 0, canvas.width, 0);
+        gradient.addColorStop(0, "magenta");
+        gradient.addColorStop(0.5, "blue");
+        gradient.addColorStop(1.0, "red");
+        crc2.fillStyle = gradient;
+        crc2.textAlign = "center";
+        crc2.font = Math.cos(currFrame * 2 * Math.PI / 50) * 2 + 10 + "px Arial";
+        crc2.fillText("Use your Mouse Cursor to play with some Balls!", 0, -42);
+    }
 
     function animate() {
-
+        frameCounter++;
         drawBackground(-canvas.width, -canvas.height, canvas.width * 2, canvas.height * 2);
-
-        
-        
-        drawPointer(canvas.width/100);
+        drawText(frameCounter);
+        drawPointer(canvas.width / 50);
         moveBall();
-        drawBall(canvas.width/80);
-        drawBall2(canvas.width/80);
-        drawPull(canvas.width/250);
-        drawPull2(canvas.width/250);
+        drawBall(canvas.width / 60);
+        drawBall2(canvas.width / 60);
+        drawPull(canvas.width / 250);
+        drawPull2(canvas.width / 250);
 
         requestAnimationFrame(animate);
     }
