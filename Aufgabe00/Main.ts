@@ -118,40 +118,9 @@ namespace Wingsuit {
         vSpeed.subtract(vFriction);
         vSpeed2.subtract(vFriction2);
 
-        /*if (vBall.x >= canvas.width / 2 || vBall.x <= -canvas.width / 2) {
-            vSpeed.x *= -1;
-        } else
-            if (vBall.y >= canvas.height / 2 || vBall.y <= -canvas.height / 2) {
-                vSpeed.y *= -1;
-            } else {
-                vSpeed.add(vPull);
-            }
-        
-
-        if (vBall2.x >= canvas.width / 2 || vBall2.x <= -canvas.width / 2) {
-            vSpeed2.x *= -1;
-        } else
-            if (vBall2.y >= canvas.height / 2 || vBall2.y <= -canvas.height / 2) {
-                vSpeed2.y *= -1;
-            } else {
-                vSpeed2.add(vPull2);
-            }
-       
-
-        if (vBall.x > canvas.width / 1.9 || vBall.x <= -canvas.width / 1.9 || vBall.y > canvas.height / 1.9 || vBall.y <= -canvas.height / 1.9) {
-            vBall.x = xMouse;
-            vBall.y = yMouse;
-        }
-
-        if (vBall2.x > canvas.width / 1.9 || vBall2.x <= -canvas.width / 1.9 || vBall2.y > canvas.height / 1.9 || vBall2.y <= -canvas.height / 1.9) {
-            vBall2.x = xMouse;
-            vBall2.y = yMouse;
-        }
-*/
-
         vBall2.add(vSpeed2);
         vBall.add(vSpeed);
-        // console.log(vPointer, vPull, vSpeed, vBall, vFriction);
+        //console.log(vPointer, vPull, vSpeed, vBall, vFriction);
 
     }
 
