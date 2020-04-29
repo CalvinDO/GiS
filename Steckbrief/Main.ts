@@ -148,7 +148,7 @@ namespace Wingsuit {
             vBall2.y = yMouse;
         }
 */
-       
+
         vBall2.add(vSpeed2);
         vBall.add(vSpeed);
         console.log(vPointer, vPull, vSpeed, vBall, vFriction);
