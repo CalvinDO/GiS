@@ -151,7 +151,7 @@ namespace Wingsuit {
 
         vBall2.add(vSpeed2);
         vBall.add(vSpeed);
-        console.log(vPointer, vPull, vSpeed, vBall, vFriction);
+        // console.log(vPointer, vPull, vSpeed, vBall, vFriction);
 
     }
 
