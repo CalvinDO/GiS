@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Das Leben des Calvin Dell'Oro</title>
-    <script>
-        setTimeout(() => window.location.reaload(), 10);
-    </script>
 </head>
 
 <body>
@@ -19,32 +16,61 @@
 
         <table>
             <tr>
-                <th>
-                    Zum Aufwärmen nun ein Schnappschuss einer Jazz-Impro meinerseits  <br> an einem öffentlichen Klavier der
+                <th width="10">
+                    Zum Aufwärmen zuerst ein Schnappschuss einer Jazz-Impro meinerseits an einem öffentlichen Klavier
+                    der
                     Berkeley-Universität
                 </th>
-                <th>
-                    Und hierunter wird noch ein anderes Bild erscheinen
+                <th width="10">
+                    Hier bin ich ebenfalls auf dem Campus der Universität von Berkeley
                 </th>
             </tr>
             <tr>
                 <td>
-                    <img src="BerkeleyPianoSmall.png" width="350" alt = "BerkeleyPianoSmall">
+                    <img src="BerkeleyPianoSmall.png" width="350" alt="BerkeleyPianoSmall" usemap="#PianoMap">
+                    
                 </td>
                 <td>
-                    <img src="hand.jpg" width="350" alt = "BerkeleyHandstand">
+                    <img src="hand.jpg" width="350" alt="BerkeleyHandstand" usemap="#HandstandMap">
+                    <img src="BerkeleyPianoSmall.png" width="350" alt="BerkeleyPianoSmall" usemap="#PianoMap">
+                   
                 </td>
             </tr>
         </table>
-        <br>
-        <br>
-        <br>
-        <i>
-            Kursiver Text benutzt das Element &lt;i&gt;
-        </i>
-        Das Element &lt;em&gt; macht derweil
 
-        <h2> Header 2</h2>
+        <map name="PianoMap">
+            <area shape="rect" coords="50,105,306,400"
+                href="https://pianova.com/de/suche/instrumente/fluegel/steinway-amp-sons-b-211-ein-traum-in-schwarz-poliert-1"
+                alt="Piano">
+                <area shape="poly" coords="0,0,350,0,350, 440, 0, 440, 0, 0, 50, 105, 50, 400, 306, 400, 306, 105, 50, 105"
+                href="https://www.berkeley.edu/"
+                alt="Piano">
+        </map>
+
+        <map name="HandstandMap">
+            <area shape="rect" coords="50,105,306,400"
+                href="https://pianova.com/de/suche/instrumente/fluegel/steinway-amp-sons-b-211-ein-traum-in-schwarz-poliert-1"
+                alt="Piano">
+                <area shape="poly" coords="0,0,350,0,350, 440, 0, 440, 0, 0, 50, 105, 50, 400, 306, 400, 306, 105, 50, 105"
+                href="https://www.berkeley.edu/"
+                alt="Piano">
+        </map>
+
+        <h3>Klicken Sie auf verschiedene Bildelemente, und lassen Sie sich überraschen!</h3>
+
+        <h2> Über mich als Person</h2>
+        <p>
+            Ich erfreue mich höchster Interesse daran, mir <i>"die Datenströme aus dem Netz direkt ins Hirn zu
+                blasen,
+                bis kein klarer Gedanke mehr zu fassen ist" </i> (Zitat aus<a
+                href="https://www.amazon.de/Das-Netz-Wolfgang-Hohlbein/dp/3956164512/ref=tmm_other_meta_binding_swatch_0?_encoding=UTF8&qid=&sr=">
+                "Das
+                Netz"</a>)
+        </p>
+        <p>
+
+        </p>
+        <h2> Über mein Studium</h2>
 
         <em> das Gleiche</em>, kann aber anders implementiert werden ohne im
         Widerspruch zum Element &lt;i&gt; zu stehen
