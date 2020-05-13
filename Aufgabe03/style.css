@@ -1,0 +1,17 @@
+h1 {
+    color: #525266;
+    font-family: "Arial Black", sans-serif;
+    text-shadow: 2px 5px 5px #cbbeb5;
+}
+h2 {
+    color: #423f3b;
+    font-family: "Arial Black", sans-serif;
+}
+body{
+    background-color: #ffe5a9;
+}
+a{
+    background: #cbbeb5;
+    color: #423f3b;
+    text-decoration: none;
+}
