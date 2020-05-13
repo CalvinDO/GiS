@@ -1,16 +1,25 @@
+.content {
+    max-width: 800px;
+}
+
 h1 {
     color: #525266;
     font-family: "Arial Black", sans-serif;
     text-shadow: 2px 5px 5px #cbbeb5;
 }
+
 h2 {
     color: #423f3b;
     font-family: "Arial Black", sans-serif;
 }
-body{
+
+body {
+    background-image: url(bg.png);
     background-color: #ffe5a9;
+    background-repeat: repeat;
 }
-a{
+
+a {
     background: #cbbeb5;
     color: #423f3b;
     text-decoration: none;
