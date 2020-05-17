@@ -1,27 +1,107 @@
+* {
+    font-family: "sans-serif";
+}
+
 .center-wrap {
     width: 800px;
     margin: 0 auto;
 }
 
+nav {
+    position: fixed;
+    top: 0;
+    margin-left: 628px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 0px 0px 8px 8px;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: #ffffff;
+    background-color: #272727;
+    mix-blend-mode: multiply;
+    text-align: center;
+    padding: 4px 16px 4px 16px;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.current {
+    color: #ff6666;
+    text-shadow: 0px 0px 8px #ff6666;
+}
+
+nav li a:hover {
+    background-color: #525266;
+}
+
+#PortHeader {
+    
+    border: 0;
+    height: 900;
+    background: #ff6666;
+    border-radius: 0 0 400px 400px;
+}
+
 h1 {
+    margin: 0;
     color: #525266;
-    font-family: "Arial Black", sans-serif;
-    text-shadow: 2px 5px 5px #cbbeb5;
+    text-shadow: 0px 5px 4px #cbbeb5;
+    font-size: 90px;
+    text-align: center;
 }
 
-h2 {
-    color: #423f3b;
-    font-family: "Arial Black", sans-serif;
+#Calvin {
+    padding: 0px 17% 0px 0px;
+    color: #525266;
+    text-shadow: 0px 5px 4px #cbbeb5;
+    font-size: 40px;
+    text-align: right;
 }
 
-body {
-    background-image: url(bg.png);
+img, iframe, video, audio {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+iframe {
+    height: 530px;
+    border: none;
+}
+
+#effect-3, #effect-D {
+    font-size: 40px;
+}
+
+#effect-3 {
+    color: #00ff00;
+    text-shadow: -1px 1px 1px #0000ff, -2px 2px 0px #0000e2, -3px 3px 0px #0000c9, -4px 4px 0px #0000aa, -5px 5px 0px #000099, -6px 6px 0px #00007a, -7px 7px 0px #000061, -8px 8px 0px #000046, -9px 9px 7px #00002e;
+}
+
+#effect-D {
+    color: #00ff00;
+    text-shadow: 1px 1px 1px #ff0000, 2px 2px 0px #e60000, 3px 3px 0px #b90000, 4px 4px 0px #b60000, 5px 5px 0px rgb(168, 0, 0), 6px 6px 0px rgb(148, 0, 0), 7px 7px 0px rgb(102, 0, 0), 8px 8px 0px rgb(90, 0, 0), 9px 9px 7px #2b0000;
+}
+
+body, nav ul {
+    background-image: url(bgAlt.png);
     background-color: #ffe5a9;
     background-repeat: repeat;
 }
 
 a {
-    background: #cbbeb5;
-    color: #423f3b;
+    color: #da5000;
     text-decoration: none;
 }
