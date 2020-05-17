@@ -147,6 +147,14 @@ iframe {
     text-shadow: -1px 1px 1px #0000ff, -2px 2px 0px #0000e2, -3px 3px 0px #0000c9, -4px 4px 0px #0000aa, -5px 5px 0px #000099, -6px 6px 0px #00007a, -7px 7px 0px #000061, -8px 8px 0px #000046, -9px 9px 7px #00002e;
 }
 
+input[type=text] {
+    background-color:#808080 ;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
 #effect-D {
     color: #00ff00;
     text-shadow: 1px 1px 1px #ff0000, 2px 2px 0px #e60000, 3px 3px 0px #b90000, 4px 4px 0px #b60000, 5px 5px 0px rgb(168, 0, 0), 6px 6px 0px rgb(148, 0, 0), 7px 7px 0px rgb(102, 0, 0), 8px 8px 0px rgb(90, 0, 0), 9px 9px 7px #4d0000;
