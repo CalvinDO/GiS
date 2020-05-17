@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>Contact</title>
 </head>
 
 <body>
-  <header>
+  <header class="center-wrap">
     <nav>
       <ul>
         <li>
@@ -18,59 +19,75 @@
           <a href="about.html">About Me </a>
         </li>
         <li>
-          <a href="contact.html">Contact </a> (current)
+          <a href="contact.html" class="current">Contact </a>
         </li>
       </ul>
     </nav>
   </header>
   <main>
-    <h1>
-      Kontaktieren Sie Calvin Dell'Oro
-    </h1>
-    <p>
-      Hier finden Sie Kontaktmöglichkeiten, um mit mir in Kontakt zu treten
-    </p>
-    <h2>
-      Allerdings müssen Sie zuerst Ihre Daten in dieses Formular eintragen:
-    </h2>
-    <h3>Und anschließend auf Submit klicken! Dann werden Sie zu meiner E-Mail Adresse weitergeleitet</h3>
-    <form action="email.html" method ="post">
-      <div>
-        <label for="Name">Name*</label> <br>
-        <input required type="text" id="Name" placeholder="Max"><br>
-        <label for="Vorname">Vorname*</label> <br>
-        <input required type="text" id="Vorname" placeholder="Mustermann"><br>
+    <div class="center-wrap">
+      <div id="PortHeader">
+        <h1 id="Portfolio">PORTFOLIO</h1>
+        <h1 id="Calvin"><i>Calvin Dell'Oro</i> </h1>
+        <div class="icons">
+          <ul>
+            <li>
+              <a href="https://www.instagram.com/dercalvino/">
+                <img id="insta" src="instagram.png" alt ="Instagram"></a>
+              <a href="mailto:calvin.delloro@hs-furtwangen.de">
+                <img id="email" src="email.png" alt ="Email"></a>
+            </li>
+          </ul>
+        </div>
       </div>
-      Tierart:
-      <div>
-        <input type="radio" id="HomoErectus" name="Tierart" value="HomoErectus">
-        <label for="HomoErectus">Homo Erectus</label><br>
-        <input type="radio" id="HomoNeanderthalensis" name="Tierart" value="HomoNeanderthalensis" checked="checked">
-        <label for="HomoNeanderthalensis">Homo Neanderthalensis</label><br>
-        <input type="radio" id="HomoSapiens" name="Tierart" value="HomoSapiens">
-        <label for="HomoSapiens">Homo Sapiens</label><br>
-      </div>
-      <div>
-        <label for="Straße">Straße</label><br>
-        <input type="text" id="Straße" placeholder="Musterstraße"><br>
-        <label for="Hausnummer">Hausnummer (2 Stellen)</label><br>
-        <input type="text" id="Hausnummer" pattern="[0-9]{2}" placeholder="42"><br>
-        <label for="Postleitzahl">Postleitzahl (5 Stellen)</label><br>
-        <input type="text" id="Postleitzahl" pattern="[0-9]{5}" placeholder="31415"><br>
-        <label for="IBAN">IBAN* ( 22 Stellen, mit DE beginnend)</label> <br>
-        <input required type="text" id ="IBAN" pattern="^DE\d{2}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{2}|DE\d{20}$"
-          placeholder="IBAN" title="In Deutschland: 22 Stellen und mit DE beginnend"> <br>
-        <label for="PIN">PIN* (4 Stellen)</label><br>
-        <input required type="text" id="PIN" pattern="[0-9]{4}" placeholder="3141">
-      </div>
-      <input type="submit" value="Submit">
-      <input type="reset" value="Reset">
-      <br><br><strong><i>*Pflichtfeld</i></strong><br>
-    </form>
+      <h1>
+        Kontaktieren Sie Calvin Dell'Oro
+      </h1>
+      <p>
+        <i>Hier finden Sie Kontaktmöglichkeiten, um mit mir in Kontakt zu treten</i>
+      </p>
+      <h2>
+        Allerdings müssen Sie zuerst Ihre Daten in dieses Formular eintragen:
+      </h2>
+      <h3>Und anschließend auf Submit klicken! Dann werden Sie zu meiner E-Mail Adresse weitergeleitet</h3>
+      <form action="email.html" method="post">
+        <div>
+          <label for="Name">Name*</label> <br>
+          <input required type="text" id="Name" placeholder="Max"><br>
+          <label for="Vorname">Vorname*</label> <br>
+          <input required type="text" id="Vorname" placeholder="Mustermann"><br>
+        </div>
+        Tierart:
+        <div>
+          <input type="radio" id="HomoErectus" name="Tierart" value="HomoErectus">
+          <label for="HomoErectus">Homo Erectus</label><br>
+          <input type="radio" id="HomoNeanderthalensis" name="Tierart" value="HomoNeanderthalensis" checked="checked">
+          <label for="HomoNeanderthalensis">Homo Neanderthalensis</label><br>
+          <input type="radio" id="HomoSapiens" name="Tierart" value="HomoSapiens">
+          <label for="HomoSapiens">Homo Sapiens</label><br>
+        </div>
+        <div>
+          <label for="Straße">Straße</label><br>
+          <input type="text" id="Straße" placeholder="Musterstraße"><br>
+          <label for="Hausnummer">Hausnummer (2 Stellen)</label><br>
+          <input type="text" id="Hausnummer" pattern="[0-9]{2}" placeholder="42"><br>
+          <label for="Postleitzahl">Postleitzahl (5 Stellen)</label><br>
+          <input type="text" id="Postleitzahl" pattern="[0-9]{5}" placeholder="31415"><br>
+          <label for="IBAN">IBAN* ( 22 Stellen, mit DE beginnend)</label> <br>
+          <input required type="text" id="IBAN" pattern="^DE\d{2}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{2}|DE\d{20}$"
+            placeholder="IBAN" title="In Deutschland: 22 Stellen und mit DE beginnend"> <br>
+          <label for="PIN">PIN* (4 Stellen)</label><br>
+          <input required type="text" id="PIN" pattern="[0-9]{4}" placeholder="3141">
+        </div>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+        <br><br><strong><i>*Pflichtfeld</i></strong><br>
+      </form>
+    </div>
   </main>
   <br>
   <br>
-  <footer>
+  <footer class="center-wrap">
     <aside>
       <i><b>Impressum</b></i> <br>
       <address>

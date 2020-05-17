@@ -79,7 +79,7 @@ h1 {
     padding: 100px 0px 0px 0px;
 }
 
-#insta:hover, #email:hover{
+#insta:hover, #email:hover {
     opacity: .6180339;
 }
 
@@ -132,8 +132,8 @@ iframe {
     border: none;
 }
 
-#dreide {
-    font-size: 40px;
+#effect-3, #effect-D {
+    font-size: 30px;
 }
 
 #Modellierungserfahrung {
