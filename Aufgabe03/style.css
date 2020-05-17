@@ -148,10 +148,11 @@ iframe {
 }
 
 input[type=text] {
+    text-align:center;
     color: white;
     background-color:#808080 ;
     width: 100%;
-    padding: 12px 15px;
+    padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
   }
