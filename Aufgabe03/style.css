@@ -119,10 +119,12 @@ h3 {
     font-size: 30px;
     text-shadow: 0px 0px 4px #cbbeb5;
 }
-#sondern{
+
+#sondern {
     color: #ff6666;
     text-shadow: 0px 0px 4px #626262;
 }
+
 img, iframe, video, audio {
     width: 100%;
     height: auto;
@@ -158,6 +160,30 @@ input[type=text] {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+}
+
+ul.hero-images {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 0px 0px 8px 8px;
+}
+
+.centered {
+    position: relative;
+    width: 10%;
+    float: left;
+    text-align: center;
+}
+
+.centered h4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    text-shadow: 0px 0px 8px #000000;
 }
 
 #effect-D {
