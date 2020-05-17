@@ -148,6 +148,7 @@ iframe {
 }
 
 input[type=text] {
+    color: white;
     background-color:#808080 ;
     width: 100%;
     padding: 12px 20px;
