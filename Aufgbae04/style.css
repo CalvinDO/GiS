@@ -185,6 +185,8 @@ nav img:last-child {
     max-height: 400px;
     overflow: hidden;
     object-fit: fill;
+    border: solid #ff0062;
+    border-radius: 20px;
 }
 
 .product-category p {
@@ -197,6 +199,7 @@ nav img:last-child {
     max-height: 100px;
     overflow: hidden;
     object-fit: fill;
+    border: 0;
 }
 
 .products h3 {
