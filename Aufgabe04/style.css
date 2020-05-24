@@ -4,6 +4,15 @@
     background-color: rgb(255, 199, 14);
 }
 
+h1 {
+    color: #423f3b;
+    padding: 0;
+    margin: 0;
+    text-shadow: 0px 0px 2px #6e3119;
+    font-size: 35px;
+    font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+}
+
 @media screen and (min-width: 1024px) {
     .center-wrap {
         width: 1200px;
@@ -17,6 +26,9 @@
     .center-wrap {
         width: 800px;
     }
+    h1 {
+        font-size: 30px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -29,19 +41,9 @@
     * {
         font-size: 15px;
     }
-    h1{
+    h1 {
         font-size: 20px;
     }
-
-}
-
-h1 {
-    color: #423f3b;
-    padding: 0;
-    margin: 0;
-    text-shadow: 0px 0px 2px #6e3119;
-    font-size: 35px;
-    font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
 }
 
 .big-image {
