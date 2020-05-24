@@ -16,7 +16,6 @@
     }
     .center-wrap {
         width: 800px;
-        font-size: 15px;
     }
 }
 
@@ -27,6 +26,13 @@
     .center-wrap {
         width: 300px;
     }
+    * {
+        font-size: 15px;
+    }
+    h1{
+        font-size: 20px;
+    }
+
 }
 
 h1 {
