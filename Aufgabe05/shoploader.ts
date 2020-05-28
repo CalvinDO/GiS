@@ -1,6 +1,6 @@
 namespace shoploader {
     function main(): void {
-        for (let i: number = 0; i < 50; i++) {
+        for (let i: number = 0; i < 5000; i++) {
             let newName: HTMLHeadingElement = document.createElement("h3");
             newName.innerHTML = "Saison-Zylinder";
 
@@ -18,8 +18,8 @@ namespace shoploader {
             newWagenLink.setAttribute("href", "#Einkaufswagen");
 
             let newWagenImage: HTMLImageElement = document.createElement("img");
-            newImage.setAttribute("src", "wagen.svg");
-            newImage.setAttribute("alt", "Einkaufswagen");
+            newWagenImage.setAttribute("src", "wagen.svg");
+            newWagenImage.setAttribute("alt", "Einkaufswagen");
 
             newWagenLink.append(newWagenImage);
 

@@ -2,7 +2,7 @@
 var shoploader;
 (function (shoploader) {
     function main() {
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 5000; i++) {
             let newName = document.createElement("h3");
             newName.innerHTML = "Saison-Zylinder";
             let newDescription = document.createElement("p");
@@ -15,8 +15,8 @@ var shoploader;
             let newWagenLink = document.createElement("a");
             newWagenLink.setAttribute("href", "#Einkaufswagen");
             let newWagenImage = document.createElement("img");
-            newImage.setAttribute("src", "wagen.svg");
-            newImage.setAttribute("alt", "Einkaufswagen");
+            newWagenImage.setAttribute("src", "wagen.svg");
+            newWagenImage.setAttribute("alt", "Einkaufswagen");
             newWagenLink.append(newWagenImage);
             let newProduct = document.createElement("div");
             newProduct.append(newName);
