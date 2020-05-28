@@ -36,8 +36,8 @@ namespace Wingsuit {
     let frameCounter: number = 0;
 
     function init(_event: Event): void {
-        canvas = document.querySelector("canvas");
-        crc2 = canvas.getContext("2d");
+        canvas = <HTMLCanvasElement>document.querySelector("canvas");
+        crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
         crc2.translate(canvas.width / 2, canvas.height / 2);
 
         animate();
@@ -66,7 +66,7 @@ namespace Wingsuit {
         crc2.beginPath();
         crc2.strokeStyle = "black";
         crc2.fillStyle = "black";
-        crc2.arc(vBall.x, vBall.y, _radius, 0 * Math.PI, 2 * Math.PI, null);
+        crc2.arc(vBall.x, vBall.y, _radius, 0 * Math.PI, 2 * Math.PI, false);
         crc2.stroke();
         crc2.fill()
     }
@@ -75,7 +75,7 @@ namespace Wingsuit {
         crc2.beginPath();
         crc2.strokeStyle = "red";
         crc2.fillStyle = "red";
-        crc2.arc(vBall2.x, vBall2.y, _radius, 0 * Math.PI, 2 * Math.PI, null);
+        crc2.arc(vBall2.x, vBall2.y, _radius, 0 * Math.PI, 2 * Math.PI, false);
         crc2.stroke();
         crc2.fill()
     }
@@ -84,7 +84,7 @@ namespace Wingsuit {
         crc2.beginPath();
         crc2.strokeStyle = "green";
         crc2.fillStyle = "green";
-        crc2.arc(xMouse, yMouse, _radius, 0 * Math.PI, 2 * Math.PI, null);
+        crc2.arc(xMouse, yMouse, _radius, 0 * Math.PI, 2 * Math.PI, false);
         crc2.stroke();
         crc2.fill();
     }

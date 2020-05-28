@@ -1,3 +1,4 @@
+"use strict";
 var Vector;
 (function (Vector) {
     class Vector2D {
