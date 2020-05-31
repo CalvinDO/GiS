@@ -37,7 +37,7 @@ var Shop;
                 case 3:
                     productsDiv = document.querySelector("#More + .product-category");
                     break;
-                default: productsDiv = document.querySelector(".product-category:last-child");
+                default: productsDiv = document.querySelector(".products:last-child");
             }
             for (let article of category) {
                 console.log("pushed article");
