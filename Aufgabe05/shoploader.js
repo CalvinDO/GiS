@@ -23,7 +23,6 @@ var Shop;
         categorys.push(articlesSpäne);
         let productsDiv;
         for (let category of categorys) {
-            console.log(categorys.indexOf(category));
             switch (categorys.indexOf(category)) {
                 case 0:
                     productsDiv = document.querySelector("#Holzscheite + .product-category");

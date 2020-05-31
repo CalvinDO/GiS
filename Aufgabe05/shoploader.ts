@@ -30,7 +30,6 @@ namespace Shop {
         let productsDiv: HTMLDivElement;
 
         for (let category of categorys) {
-            console.log(categorys.indexOf(category));
             switch (categorys.indexOf(category)) {
                 case 0: productsDiv = <HTMLDivElement>document.querySelector("#Holzscheite + .product-category");
                         break;
