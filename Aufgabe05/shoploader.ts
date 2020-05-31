@@ -1,6 +1,6 @@
 namespace Shop {
     function main(): void {
-
+        
         let categorys: Article[][] = [];
         let articlesScheite: Article[] = [];
         articlesScheite.push(new Article("Saison-Zylinder", "Gerade zu dieser Jahreszeit sticht der Saison-Zylinder mit seiner Form heraus", "Saison.jpg", 20));
