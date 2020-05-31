@@ -43,7 +43,6 @@ namespace Shop {
                 default: productsDiv = <HTMLDivElement>document.querySelector(".products:last-child");
             }
             for (let article of category) {
-                console.log("pushed article");
                 productsDiv.append(article.buildDiv());
             }
         }
