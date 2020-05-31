@@ -2,11 +2,11 @@
 var Wingsuit;
 (function (Wingsuit) {
     let crc2;
-    const timeSliceInMS = 1;
+    //  const timeSliceInMS: number = 1;
     // Initial position
-    let position = 0;
+    // let position = 0;
     let gravity = .4;
-    let gravity2 = .4;
+    // let gravity2 = .4;
     var Vector2D = Vector.Vector2D;
     window.addEventListener("load", init);
     window.addEventListener("mousemove", trackMouseMove);
@@ -25,7 +25,7 @@ var Wingsuit;
     let vFriction2 = new Vector2D(0, 0);
     let xMouse = 0;
     let yMouse = 0;
-    let i = 0;
+    // let i: number = 0;
     let canvas;
     let frameCounter = 0;
     function init(_event) {

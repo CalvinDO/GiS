@@ -1,12 +1,12 @@
 namespace Wingsuit {
     let crc2: CanvasRenderingContext2D;
 
-    const timeSliceInMS: number = 1;
+    //  const timeSliceInMS: number = 1;
 
     // Initial position
-    let position = 0;
-    let gravity = .4;
-    let gravity2 = .4;
+    // let position = 0;
+    let gravity: number = .4;
+    // let gravity2 = .4;
     import Vector2D = Vector.Vector2D;
 
     window.addEventListener("load", init);
@@ -30,7 +30,7 @@ namespace Wingsuit {
     let xMouse: number = 0;
     let yMouse: number = 0;
 
-    let i: number = 0;
+    // let i: number = 0;
     let canvas: HTMLCanvasElement;
 
     let frameCounter: number = 0;
@@ -53,34 +53,34 @@ namespace Wingsuit {
     }
 
 
-    function drawBackground(_x: number, _y: number, _w: number, _h: number) {
+    function drawBackground(_x: number, _y: number, _w: number, _h: number): void {
         crc2.beginPath();
         crc2.strokeStyle = "rgb(102, 255, 255)";
         crc2.fillStyle = "rgb(102, 255, 255)";
-        crc2.rect(_x, _y, _w, _h)
+        crc2.rect(_x, _y, _w, _h);
         crc2.stroke();
-        crc2.fill()
+        crc2.fill();
     }
 
-    function drawBall(_radius: number) {
+    function drawBall(_radius: number): void {
         crc2.beginPath();
         crc2.strokeStyle = "black";
         crc2.fillStyle = "black";
         crc2.arc(vBall.x, vBall.y, _radius, 0 * Math.PI, 2 * Math.PI, false);
         crc2.stroke();
-        crc2.fill()
+        crc2.fill();
     }
 
-    function drawBall2(_radius: number) {
+    function drawBall2(_radius: number): void {
         crc2.beginPath();
         crc2.strokeStyle = "red";
         crc2.fillStyle = "red";
         crc2.arc(vBall2.x, vBall2.y, _radius, 0 * Math.PI, 2 * Math.PI, false);
         crc2.stroke();
-        crc2.fill()
+        crc2.fill();
     }
 
-    function drawPointer(_radius: number) {
+    function drawPointer(_radius: number): void {
         crc2.beginPath();
         crc2.strokeStyle = "green";
         crc2.fillStyle = "green";
@@ -89,7 +89,7 @@ namespace Wingsuit {
         crc2.fill();
     }
 
-    function moveBall() {
+    function moveBall(): void {
         vPull = vBall.getDiff(vPointer);
         vPull.x *= -1 / 40;
         vPull.y *= -1 / 40;
@@ -142,8 +142,8 @@ namespace Wingsuit {
         crc2.stroke();
     }
 
-    function drawText(currFrame: number) {
-        var gradient = crc2.createLinearGradient(0, 0, canvas.width, 0);
+    function drawText(currFrame: number): void {
+        var gradient: CanvasGradient = crc2.createLinearGradient(0, 0, canvas.width, 0);
         gradient.addColorStop(0, "magenta");
         gradient.addColorStop(0.5, "blue");
         gradient.addColorStop(1.0, "red");
@@ -153,7 +153,7 @@ namespace Wingsuit {
         crc2.fillText("Use your Mouse Cursor to play with some Balls!", 0, -42);
     }
 
-    function animate() {
+    function animate(): void {
         frameCounter++;
         drawBackground(-canvas.width, -canvas.height, canvas.width * 2, canvas.height * 2);
         drawText(frameCounter);
