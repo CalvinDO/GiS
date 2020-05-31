@@ -37,8 +37,6 @@ namespace Shop {
                         break;
                 case 2: productsDiv = <HTMLDivElement>document.querySelector("#Holzspäne + .product-category");
                         break;
-                case 3: productsDiv = <HTMLDivElement>document.querySelector("#More + .product-category");
-                        break;
                 default: productsDiv = <HTMLDivElement>document.querySelector(".products:last-child");
             }
             for (let article of category) {

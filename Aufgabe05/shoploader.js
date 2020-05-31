@@ -33,9 +33,6 @@ var Shop;
                 case 2:
                     productsDiv = document.querySelector("#Holzspäne + .product-category");
                     break;
-                case 3:
-                    productsDiv = document.querySelector("#More + .product-category");
-                    break;
                 default: productsDiv = document.querySelector(".products:last-child");
             }
             for (let article of category) {
