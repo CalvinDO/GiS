@@ -44,8 +44,6 @@ var Shop;
                 productsDiv.append(article.buildDiv());
             }
         }
-        let randomImage = new Shop.RandomImagePicker("Holz");
-        console.log(randomImage);
     }
     main();
 })(Shop || (Shop = {}));
