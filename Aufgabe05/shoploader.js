@@ -46,4 +46,4 @@ var Shop;
     }
     main();
 })(Shop || (Shop = {}));
-//# sourceMappingURL=Shoploader.js.map
+//# sourceMappingURL=shoploader.js.map
