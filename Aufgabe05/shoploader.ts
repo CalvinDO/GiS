@@ -1,6 +1,7 @@
 namespace Shop {
+
     function main(): void {
-        
+
         let categorys: Article[][] = [];
         let articlesScheite: Article[] = [];
         articlesScheite.push(new Article("Saison-Zylinder", "Gerade zu dieser Jahreszeit sticht der Saison-Zylinder mit seiner Form heraus", "Saison.jpg", 20));
@@ -32,13 +33,13 @@ namespace Shop {
             console.log(categorys.indexOf(category));
             switch (categorys.indexOf(category)) {
                 case 0: productsDiv = <HTMLDivElement>document.querySelector("#Holzscheite + .product-category");
-                    break;
+                        break;
                 case 1: productsDiv = <HTMLDivElement>document.querySelector("#Holzpellets + .product-category");
-                    break;
+                        break;
                 case 2: productsDiv = <HTMLDivElement>document.querySelector("#Holzspäne + .product-category");
-                    break;
+                        break;
                 case 3: productsDiv = <HTMLDivElement>document.querySelector("#More + .product-category");
-                    break;
+                        break;
                 default: productsDiv = <HTMLDivElement>document.querySelector(".products:last-child");
             }
             for (let article of category) {
@@ -46,9 +47,6 @@ namespace Shop {
                 productsDiv.append(article.buildDiv());
             }
         }
-
-        let randomImage: RandomImagePicker = new RandomImagePicker("Holz");
-        console.log(randomImage);
     }
     main();
 }
