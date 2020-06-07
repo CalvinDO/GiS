@@ -52,11 +52,12 @@ namespace ShopInteractive {
 
         public handleClickWagen(_click: MouseEvent): void {
             articleCount++;
-
             priceCount += this.price;
+
             this.counterLi = <HTMLLIElement>document.querySelector(".counter");
             this.counterLi.innerHTML = articleCount <= 0 ? "" : ("" + articleCount);
             this.counterLi.setAttribute("style", articleCount <= 0 ? "display:none !important" : "display:inline-block !important");
+            
             console.log(priceCount);
         }
     }
