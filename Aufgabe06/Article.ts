@@ -7,6 +7,8 @@ namespace ShopInteractive {
         public price: number;
         public wagen: string;
 
+        public counterLi: HTMLLIElement;
+
         public constructor(_name: string, _description: string, _image: string, _price: number) {
             this.name = _name;
             this.description = _description;
@@ -52,8 +54,9 @@ namespace ShopInteractive {
             articleCount++;
 
             priceCount += this.price;
-            let counterP: HTMLParagraphElement = <HTMLParagraphElement>document.querySelector("li p");
-            counterP.innerHTML = articleCount <= 0 ? "" : ("" + articleCount);
+            this.counterLi = <HTMLLIElement>document.querySelector(".counter");
+            this.counterLi.innerHTML = articleCount <= 0 ? "" : ("" + articleCount);
+            this.counterLi.setAttribute("style", articleCount <= 0 ? "display:none !important" : "display:inline-block !important");
             console.log(priceCount);
         }
     }

@@ -37,8 +37,9 @@ var ShopInteractive;
         handleClickWagen(_click) {
             ShopInteractive.articleCount++;
             ShopInteractive.priceCount += this.price;
-            let counterP = document.querySelector("li p");
-            counterP.innerHTML = ShopInteractive.articleCount <= 0 ? "" : ("" + ShopInteractive.articleCount);
+            this.counterLi = document.querySelector(".counter");
+            this.counterLi.innerHTML = ShopInteractive.articleCount <= 0 ? "" : ("" + ShopInteractive.articleCount);
+            this.counterLi.setAttribute("style", ShopInteractive.articleCount <= 0 ? "display:none !important" : "display:inline-block !important");
             console.log(ShopInteractive.priceCount);
         }
     }

@@ -7,14 +7,14 @@ var ShopInteractive;
     let scheiteDiv;
     let pelletsDiv;
     let späneDiv;
+    let categorys = [];
+    let articlesScheite = [];
     function init(_event) {
         loadArticles();
         loadNavListeners();
         loadSearchListener();
     }
     function loadArticles() {
-        let categorys = [];
-        let articlesScheite = [];
         articlesScheite.push(new ShopInteractive.Article("Saison-Zylinder", "Gerade zu dieser Jahreszeit sticht der Saison-Zylinder mit seiner Form heraus", "Saison.jpg", 20));
         articlesScheite.push(new ShopInteractive.Article("Günstig-Faser", "Für ganz besonders orthodoxe Sparfüchse hält diese Günstig-Faser immer etwas parat", "Billig.jpg", 5));
         articlesScheite.push(new ShopInteractive.Article("Öko-Ast", "Mit diesem Öko-Ast helfen Sie der Umwelt und sich selbst", "Öko.jpg", 40));
@@ -33,7 +33,6 @@ var ShopInteractive;
         articlesSpäne.push(new ShopInteractive.Article("Raspel-Eule", "Eine Eule aus Holzspänen! Was wollen Sie denn noch??", "eule.jpg", 58043));
         categorys.push(articlesSpäne);
         let productsDiv = document.createElement("div");
-        //let wagenCounter: HTMLParagraphElement = <HTMLParagraphElement>document.querySelector("#Holzscheite + .product-category");
         for (let category of categorys) {
             switch (categorys.indexOf(category)) {
                 case 0:
@@ -48,7 +47,9 @@ var ShopInteractive;
                     productsDiv = document.querySelector("#Holzspäne + .product-category");
                     späneDiv = productsDiv;
                     break;
-                default: productsDiv = document.querySelector(".products:last-child");
+                default:
+                    productsDiv = document.querySelector(".products:last-child");
+                    break;
             }
             for (let article of category) {
                 productsDiv.append(article.buildDiv());
@@ -66,14 +67,19 @@ var ShopInteractive;
     }
     function loadSearchListener() {
         let searchButton;
+        let searchInput = document.querySelector("nav input");
         searchButton = document.querySelector("li:last-child a");
-        searchButton.addEventListener("click", handleClickSearch);
+        searchButton.addEventListener("click", handleClickSearch.bind(searchInput));
     }
     function handleClickSearch(_event) {
-        console.log("clickSearch");
+        showElementsContaining(this.value);
+    }
+    function showElementsContaining(_substring) {
+        console.log(_substring);
+        let searchRegEx = new RegExp(_substring);
+        console.log(searchRegEx.test("Hallo"));
     }
     function handleClickCategory(_click) {
-        console.log(this.getAttribute("href"));
         let clickedAtt = this.getAttribute("href");
         switch (clickedAtt) {
             case "#Startseite":

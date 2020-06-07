@@ -9,6 +9,9 @@ namespace ShopInteractive {
     let pelletsDiv: HTMLDivElement;
     let späneDiv: HTMLDivElement;
 
+    let categorys: Article[][] = [];
+    let articlesScheite: Article[] = [];
+
     function init(_event: Event): void {
         loadArticles();
         loadNavListeners();
@@ -16,8 +19,6 @@ namespace ShopInteractive {
     }
 
     function loadArticles(): void {
-        let categorys: Article[][] = [];
-        let articlesScheite: Article[] = [];
         articlesScheite.push(new Article("Saison-Zylinder", "Gerade zu dieser Jahreszeit sticht der Saison-Zylinder mit seiner Form heraus", "Saison.jpg", 20));
         articlesScheite.push(new Article("Günstig-Faser", "Für ganz besonders orthodoxe Sparfüchse hält diese Günstig-Faser immer etwas parat", "Billig.jpg", 5));
         articlesScheite.push(new Article("Öko-Ast", "Mit diesem Öko-Ast helfen Sie der Umwelt und sich selbst", "Öko.jpg", 40));
@@ -43,20 +44,23 @@ namespace ShopInteractive {
 
         let productsDiv: HTMLDivElement = document.createElement("div");
 
-        //let wagenCounter: HTMLParagraphElement = <HTMLParagraphElement>document.querySelector("#Holzscheite + .product-category");
-
         for (let category of categorys) {
             switch (categorys.indexOf(category)) {
-                case 0: productsDiv = <HTMLDivElement>document.querySelector("#Holzscheite + .product-category");
+                case 0:
+                    productsDiv = <HTMLDivElement>document.querySelector("#Holzscheite + .product-category");
                     scheiteDiv = productsDiv;
                     break;
-                case 1: productsDiv = <HTMLDivElement>document.querySelector("#Holzpellets + .product-category");
+                case 1:
+                    productsDiv = <HTMLDivElement>document.querySelector("#Holzpellets + .product-category");
                     pelletsDiv = productsDiv;
                     break;
-                case 2: productsDiv = <HTMLDivElement>document.querySelector("#Holzspäne + .product-category");
+                case 2:
+                    productsDiv = <HTMLDivElement>document.querySelector("#Holzspäne + .product-category");
                     späneDiv = productsDiv;
                     break;
-                default: productsDiv = <HTMLDivElement>document.querySelector(".products:last-child");
+                default:
+                    productsDiv = <HTMLDivElement>document.querySelector(".products:last-child");
+                    break;
             }
             for (let article of category) {
                 productsDiv.append(article.buildDiv());
@@ -76,17 +80,23 @@ namespace ShopInteractive {
 
     function loadSearchListener(): void {
         let searchButton: HTMLAnchorElement;
+        let searchInput: HTMLInputElement = <HTMLInputElement>document.querySelector("nav input");
         searchButton = <HTMLAnchorElement>document.querySelector("li:last-child a");
-        searchButton.addEventListener("click", handleClickSearch);
+        searchButton.addEventListener("click", handleClickSearch.bind(searchInput));
     }
 
-    function handleClickSearch(_event: MouseEvent): void {
-        console.log("clickSearch");
+    function handleClickSearch(this: HTMLInputElement, _event: MouseEvent): void {
+        showElementsContaining(this.value);
+    }
+
+    function showElementsContaining(_substring: string): void {
+        console.log(_substring);
+        let searchRegEx: RegExp = new RegExp(_substring);
+        console.log(searchRegEx.test("Hallo"));
     }
 
     function handleClickCategory(this: HTMLAnchorElement, _click: MouseEvent): void {
-        console.log(this.getAttribute("href"));
-        let clickedAtt: String = <String>this.getAttribute("href");
+        let clickedAtt: string = <string>this.getAttribute("href");
         switch (clickedAtt) {
             case "#Startseite":
                 showAll();
