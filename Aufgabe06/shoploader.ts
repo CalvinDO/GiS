@@ -93,6 +93,8 @@ namespace ShopInteractive {
         console.log(_substring);
         let searchRegEx: RegExp = new RegExp(_substring);
         console.log(searchRegEx.test("Hallo"));
+        
+
     }
 
     function handleClickCategory(this: HTMLAnchorElement, _click: MouseEvent): void {
