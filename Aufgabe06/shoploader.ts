@@ -91,10 +91,33 @@ namespace ShopInteractive {
 
     function showElementsContaining(_substring: string): void {
         console.log(_substring);
-        let searchRegEx: RegExp = new RegExp(_substring);
-        console.log(searchRegEx.test("Hallo"));
-        
+        let searchRegEx: RegExp = new RegExp(_substring.toLowerCase());
 
+
+        let name: string;
+        let description: string;
+        let bothKonkat: string;
+
+        let articleDiv: HTMLDivElement;
+        let catIndex: number;
+        let aIndex: number;
+
+        let match: boolean;
+        for (let category of categorys) {
+            for (let article of category) {
+                name = article.name;
+                description = article.description;
+                bothKonkat = name + description;
+                aIndex = category.indexOf(article) + 1;
+                catIndex = categorys.indexOf(category) + 2;
+                articleDiv = <HTMLDivElement>document.querySelector("#" + name);
+                console.log(articleDiv);
+
+                match = searchRegEx.test(bothKonkat.toLowerCase());
+                articleDiv.style.display = match ? "flex" : "none";
+
+            }
+        }
     }
 
     function handleClickCategory(this: HTMLAnchorElement, _click: MouseEvent): void {

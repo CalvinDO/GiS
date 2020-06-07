@@ -76,8 +76,27 @@ var ShopInteractive;
     }
     function showElementsContaining(_substring) {
         console.log(_substring);
-        let searchRegEx = new RegExp(_substring);
-        console.log(searchRegEx.test("Hallo"));
+        let searchRegEx = new RegExp(_substring.toLowerCase());
+        let name;
+        let description;
+        let bothKonkat;
+        let articleDiv;
+        let catIndex;
+        let aIndex;
+        let match;
+        for (let category of categorys) {
+            for (let article of category) {
+                name = article.name;
+                description = article.description;
+                bothKonkat = name + description;
+                aIndex = category.indexOf(article) + 1;
+                catIndex = categorys.indexOf(category) + 2;
+                articleDiv = document.querySelector("#" + name);
+                console.log(articleDiv);
+                match = searchRegEx.test(bothKonkat.toLowerCase());
+                articleDiv.style.display = match ? "flex" : "none";
+            }
+        }
     }
     function handleClickCategory(_click) {
         let clickedAtt = this.getAttribute("href");

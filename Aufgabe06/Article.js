@@ -4,6 +4,7 @@ var ShopInteractive;
     class Article {
         constructor(_name, _description, _image, _price) {
             this.name = _name;
+            this.id = _name;
             this.description = _description;
             this.image = _image;
             this.price = _price;
@@ -32,6 +33,7 @@ var ShopInteractive;
             outputDiv.append(newImage);
             outputDiv.append(newPrice);
             outputDiv.append(newWagenLink);
+            outputDiv.setAttribute("id", this.id);
             return outputDiv;
         }
         handleClickWagen(_click) {

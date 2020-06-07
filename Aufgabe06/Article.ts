@@ -6,11 +6,13 @@ namespace ShopInteractive {
         public image: string;
         public price: number;
         public wagen: string;
+        public id: string;
 
         public counterLi: HTMLLIElement;
 
         public constructor(_name: string, _description: string, _image: string, _price: number) {
             this.name = _name;
+            this.id = _name;
             this.description = _description;
             this.image = _image;
             this.price = _price;
@@ -47,6 +49,7 @@ namespace ShopInteractive {
             outputDiv.append(newPrice);
             outputDiv.append(newWagenLink);
 
+            outputDiv.setAttribute("id", this.id);
             return outputDiv;
         }
 
@@ -57,7 +60,7 @@ namespace ShopInteractive {
             this.counterLi = <HTMLLIElement>document.querySelector(".counter");
             this.counterLi.innerHTML = articleCount <= 0 ? "" : ("" + articleCount);
             this.counterLi.setAttribute("style", articleCount <= 0 ? "display:none !important" : "display:inline-block !important");
-            
+
             console.log(priceCount);
         }
     }
