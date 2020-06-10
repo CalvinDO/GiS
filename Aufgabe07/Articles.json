@@ -1,0 +1,104 @@
+[
+    [
+        {
+            "name": "Saison-Zylinder",
+            "id": "Saison-Zylinder",
+            "description": "Gerade zu dieser Jahreszeit sticht der Saison-Zylinder mit seiner Form heraus",
+            "image": "Saison.jpg",
+            "price": 20,
+            "wagen": "wagen.svg"
+        },
+        {
+            "name": "Günstig-Faser",
+            "id": "Günstig-Faser",
+            "description": "Für ganz besonders orthodoxe Sparfüchse hält diese Günstig-Faser immer etwas parat",
+            "image": "Billig.jpg",
+            "price": 5,
+            "wagen": "wagen.svg"
+        },
+        {
+            "name": "Öko-Ast",
+            "id": "Öko-Ast",
+            "description": "Mit diesem Öko-Ast helfen Sie der Umwelt und sich selbst",
+            "image": "Öko.jpg",
+            "price": 40,
+            "wagen": "wagen.svg"
+        },
+        {
+            "name": "Verziert-Pfahl",
+            "id": "Verziert-Pfahl",
+            "description": "Verziert-Pfahl - Da man sich ja sonst nichts gönnt",
+            "image": "Verziert.jpg",
+            "price": 200,
+            "wagen": "wagen.svg"
+        }
+    ],
+    [
+        {
+            "name": "Gerade-Stiel",
+            "id": "Gerade-Stiel",
+            "description": "Der Gerade-Stiel gibt Ihrem Kamin einen ganz besonderen Look",
+            "image": "gerade.jpg",
+            "price": 10,
+            "wagen": "wagen.svg"
+        },
+        {
+            "name": "Krumm-Säbel",
+            "id": "Krumm-Säbel",
+            "description": "Vorsicht - scharf! Der Krumm-Säbel wird außerordentliche Performance leisten. Aber wie immer gilt: Nichts beschädigen",
+            "image": "krumm.jpg",
+            "price": 15,
+            "wagen": "wagen.svg"
+        },
+        {
+            "name": "Kurz-Stempel",
+            "id": "Kurz-Stempel",
+            "description": "Auf den Kurz-Stempel können Sie sich vielleicht sogar setzten!",
+            "image": "kurz.jpeg",
+            "price": 10,
+            "wagen": "wagen.svg"
+        },
+        {
+            "name": "Big-Brownie",
+            "id": "Big-Brownie",
+            "description": "Zum anbeißen!",
+            "image": "big.jpg",
+            "price": 50,
+            "wagen": "wagen.svg"
+        }
+    ],
+    [
+        {
+            "name": "Raspel-Grob",
+            "id": "Raspel-Grob",
+            "description": "Für herbe Typen",
+            "image": "grob.jpg",
+            "price": 4,
+            "wagen": "wagen.svg"
+        },
+        {
+            "name": "Haar-Fein",
+            "id": "Haar-Fein",
+            "description": "Für selbstbewusste Haarpflege-Experten",
+            "image": "haar.jpg",
+            "price": 18,
+            "wagen": "wagen.svg"
+        },
+        {
+            "name": "Rot-Wunder",
+            "id": "Rot-Wunder",
+            "description": "Nun mit dem Rot-Wunder in die absolute Farbenexplosion starten!",
+            "image": "rot.jpg",
+            "price": 20,
+            "wagen": "wagen.svg"
+        },
+        {
+            "name": "Raspel-Eule",
+            "id": "Raspel-Eule",
+            "description": "Eine Eule aus Holzspänen! Was wollen Sie denn noch??",
+            "image": "eule.jpg",
+            "price": 58043,
+            "wagen": "wagen.svg"
+        }
+    ]
+]

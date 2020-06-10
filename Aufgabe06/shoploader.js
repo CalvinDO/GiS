@@ -81,16 +81,12 @@ var ShopInteractive;
         let description;
         let bothKonkat;
         let articleDiv;
-        let catIndex;
-        let aIndex;
         let match;
         for (let category of categorys) {
             for (let article of category) {
                 name = article.name;
                 description = article.description;
                 bothKonkat = name + description;
-                aIndex = category.indexOf(article) + 1;
-                catIndex = categorys.indexOf(category) + 2;
                 articleDiv = document.querySelector("#" + name);
                 console.log(articleDiv);
                 match = searchRegEx.test(bothKonkat.toLowerCase());

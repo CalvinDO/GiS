@@ -99,8 +99,6 @@ namespace ShopInteractive {
         let bothKonkat: string;
 
         let articleDiv: HTMLDivElement;
-        let catIndex: number;
-        let aIndex: number;
 
         let match: boolean;
         for (let category of categorys) {
@@ -108,8 +106,6 @@ namespace ShopInteractive {
                 name = article.name;
                 description = article.description;
                 bothKonkat = name + description;
-                aIndex = category.indexOf(article) + 1;
-                catIndex = categorys.indexOf(category) + 2;
                 articleDiv = <HTMLDivElement>document.querySelector("#" + name);
                 console.log(articleDiv);
 
