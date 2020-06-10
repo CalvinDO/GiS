@@ -2,11 +2,11 @@
 var ShopJson;
 (function (ShopJson) {
     window.addEventListener("load", init);
-    let body;
+    let container;
     let articleDiv;
     var Article = ShopJson.Article;
     function init() {
-        body = document.querySelector(".warenbody");
+        container = document.querySelector("h2 + div");
         buildArticles();
     }
     function buildArticles() {
@@ -18,7 +18,7 @@ var ShopJson;
             parsed = JSON.parse(articleJson);
             let article = Article.createFromJSON(parsed);
             articleDiv = article.buildDiv();
-            body.append(articleDiv);
+            container.append(articleDiv);
             console.log(articleDiv);
         }
     }
