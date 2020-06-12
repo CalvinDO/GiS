@@ -24,7 +24,7 @@ var ShopJson;
         for (let categoryJSON of _categories) {
             category = [];
             for (let article of categoryJSON) {
-                category.push(new ShopJson.Article(article.name, article.description, article.image, article.price));
+                category.push(new ShopJson.Article(article.name, article.description, article.image, article.price, 1));
             }
             categorys.push(category);
         }
@@ -35,7 +35,7 @@ var ShopJson;
             productsDiv = document.querySelector("h2:nth-child(" + index + ") + div");
             divs.push(productsDiv);
             for (let article of category) {
-                productsDiv.append(article.buildDiv());
+                productsDiv.append(article.buildDiv(true));
             }
         }
     }

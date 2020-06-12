@@ -31,7 +31,7 @@ namespace ShopJson {
         for (let categoryJSON of _categories) {
             category = [];
             for (let article of categoryJSON) {
-                category.push(new Article(article.name, article.description, article.image, article.price));
+                category.push(new Article(article.name, article.description, article.image, article.price, 1));
             }
             categorys.push(category);
         }
@@ -44,7 +44,7 @@ namespace ShopJson {
             divs.push(productsDiv);
 
             for (let article of category) {
-                productsDiv.append(article.buildDiv());
+                productsDiv.append(article.buildDiv(true));
             }
         }
     }
@@ -65,7 +65,7 @@ namespace ShopJson {
         searchButton = <HTMLAnchorElement>document.querySelector("li:last-child a");
         searchButton.addEventListener("click", handleClickSearch.bind(searchInput));
     }
-    
+
     function handleClickSearch(this: HTMLInputElement, _event: MouseEvent): void {
         showElementsContaining(this.value);
     }
