@@ -12,7 +12,7 @@ var ShopJson;
                 this.amount = _amount;
             }
             static createFromJSON(_json) {
-                return new Article(_json.name, _json.description, _json.image, _json.price, 1);
+                return new Article(_json.name, _json.description, _json.image, _json.price, _json.amount);
             }
             buildDiv(_inCart) {
                 let outputDiv = document.createElement("div");
@@ -29,18 +29,17 @@ var ShopJson;
                 outputDiv.append(newDescription);
                 outputDiv.append(newImage);
                 outputDiv.append(newPrice);
-                outputDiv.append(_inCart ? this.generateInCart() : this.generateRemoveFromCart());
+                outputDiv.append(_inCart ? this.generateInCart() : this.generateAmountControl());
                 outputDiv.setAttribute("id", this.id);
                 return outputDiv;
             }
             handleClickWagen(_click) {
                 ShopJson.articleCount++;
-                ShopJson.priceCount += this.price;
-                this.counterLi = document.querySelector(".counter");
-                this.counterLi.innerHTML = ShopJson.articleCount <= 0 ? "" : ("" + ShopJson.articleCount);
-                this.counterLi.setAttribute("style", ShopJson.articleCount <= 0 ? "display:none !important" : "display:inline-block !important");
-                console.log(ShopJson.priceCount);
                 this.amount += 1;
+                console.log(ShopJson.articleCount);
+                localStorage.setItem("cartAmount", "" + ShopJson.articleCount);
+                ShopJson.priceCount += this.price;
+                ShopJson.updateArticleCount();
                 this.pushLocalStorage(this);
             }
             handleClickRemove(_click) {
@@ -62,7 +61,7 @@ var ShopJson;
                 newWagenLink.addEventListener("click", this.handleClickWagen.bind(this));
                 return newWagenLink;
             }
-            generateRemoveFromCart() {
+            generateAmountControl() {
                 let divOutput = document.createElement("div");
                 let newDeleteLink = document.createElement("a");
                 let newAddLink = document.createElement("a");
@@ -72,25 +71,52 @@ var ShopJson;
                 let newSubtractImage = document.createElement("img");
                 newDeleteLink.setAttribute("href", "#/");
                 newDeleteImage.setAttribute("src", "delete.png");
-                newDeleteImage.setAttribute("alt", "Einkaufswagen");
+                newDeleteImage.setAttribute("alt", "delete");
                 newDeleteLink.append(newDeleteImage);
                 newAddLink.setAttribute("href", "#/");
                 newAddImage.setAttribute("src", "add.png");
-                newAddImage.setAttribute("alt", "Einkaufswagen");
+                newAddImage.setAttribute("alt", "add");
                 newAddLink.append(newAddImage);
                 newSubtractLink.setAttribute("href", "#/");
                 newSubtractImage.setAttribute("src", "subtract.png");
-                newSubtractImage.setAttribute("alt", "Einkaufswagen");
+                newSubtractImage.setAttribute("alt", "subtract");
                 newSubtractLink.append(newSubtractImage);
-                let display = document.createElement("span");
+                let display = document.createElement("input");
+                display.placeholder = this.amount + "";
                 display.innerHTML = this.amount + "";
+                display.addEventListener("change", this.textChange.bind(this));
                 newDeleteLink.addEventListener("click", this.handleClickRemove.bind(this));
+                newAddLink.addEventListener("click", this.handleAmountInteraction.bind(this));
+                newSubtractLink.addEventListener("click", this.handleAmountInteraction.bind(this));
                 divOutput.append(newDeleteLink);
                 divOutput.append(newSubtractLink);
                 divOutput.append(display);
                 divOutput.append(newAddLink);
-                console.log(divOutput);
                 return divOutput;
+            }
+            textChange(_event) {
+                let input = _event.target;
+                this.amount = +input.value;
+                localStorage.setItem(this.name, JSON.stringify(this));
+                ShopJson.updateArticles();
+            }
+            handleAmountInteraction(_event) {
+                let target = _event.target;
+                switch (target.getAttribute("alt")) {
+                    case "add":
+                        this.amount++;
+                        break;
+                    case "subtract":
+                        this.amount -= 1;
+                        break;
+                }
+                if (this.amount > 0) {
+                    localStorage.setItem(this.name, JSON.stringify(this));
+                }
+                else {
+                    localStorage.removeItem(this.name);
+                }
+                ShopJson.updateArticles();
             }
         }
         Article.wagen = "wagen.svg";

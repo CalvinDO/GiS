@@ -1,10 +1,9 @@
 namespace ShopJson {
     window.addEventListener("load", init);
+    window.addEventListener("storage", storageChanged);
 
     export let articleCount: number = 0;
     export let priceCount: number = 0;
-
-    //export let cart: Cart;
 
     let divs: HTMLDivElement[] = [];
     let showIndex: number;
@@ -13,8 +12,11 @@ namespace ShopJson {
     let category: Article[] = [];
     let categorys: Article[][] = [];
 
+    let counterLi: HTMLLIElement;
+
     function init(_event: Event): void {
         communicate("Articles.json");
+        updateArticleCount();
 
         loadNavListeners();
         loadSearchListener();
@@ -27,11 +29,23 @@ namespace ShopJson {
         loadArticles(categorysJSON);
     }
 
+    function storageChanged(_event: Event): void {
+        updateArticleCount();
+    }
+
+    export function updateArticleCount(): void {
+        articleCount = localStorage.getItem("cartAmount") != "NaN" ? +<string>localStorage.getItem("cartAmount") : 0;
+
+        counterLi = <HTMLLIElement>document.querySelector(".counter");
+        counterLi.innerHTML = articleCount <= 0 ? "" : ("" + articleCount);
+        counterLi.setAttribute("style", articleCount <= 0 ? "display:none !important" : "display:inline-block !important");
+    }
+
     function loadArticles(_categories: Article[][]): void {
         for (let categoryJSON of _categories) {
             category = [];
             for (let article of categoryJSON) {
-                category.push(new Article(article.name, article.description, article.image, article.price, 1));
+                category.push(new Article(article.name, article.description, article.image, article.price, 0));
             }
             categorys.push(category);
         }
@@ -71,7 +85,6 @@ namespace ShopJson {
     }
 
     function showElementsContaining(_substring: string): void {
-        console.log(_substring);
         let searchRegEx: RegExp = new RegExp(_substring.toLowerCase());
 
         let name: string;
@@ -111,7 +124,7 @@ namespace ShopJson {
                 break;
         }
 
-        for (let i: number = 0; i <= divs.length; i++) {
+        for (let i: number = 0; i < divs.length; i++) {
             let div: HTMLDivElement = <HTMLDivElement>divs[i];
             if (showIndex != -1) {
                 div.style.display = showIndex == i ? "flex" : "none";

@@ -300,7 +300,7 @@ nav input[type="text"] {
     padding-right: 3%;
 }
 
-.product-category div>div span {
+.product-category div>div input {
     display: inline-block;
     font: 165% Arial, sans-serif;
     overflow: auto;
@@ -330,4 +330,38 @@ nav input[type="text"] {
     text-shadow: 0px 0px 4px #e98d68;
     font-size: 50px;
     font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+}
+
+#removeAll {
+    padding-left: 77%;
+}
+
+#removeAll img {
+    width: 15%;
+}
+
+#removeAll :hover {
+    opacity: 80%;
+}
+
+#removeAll+div {
+    position: fixed;
+    top: 0;
+    right: 23%;
+    margin: 0 auto;
+    width: 15%;
+    height: auto;
+    display: block;
+}
+
+button {
+    position: relative;
+    font-size: 24px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: white;
+    text-shadow: 0px 0px 2px #000000;
+    width: 100%;
+    align-items: center;
+    object-fit: fill;
+    height: auto;
 }

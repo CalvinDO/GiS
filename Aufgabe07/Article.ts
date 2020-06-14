@@ -8,8 +8,6 @@ namespace ShopJson {
         public id: string;
         public amount: number;
 
-        public counterLi: HTMLLIElement;
-
         public constructor(_name: string, _description: string, _image: string, _price: number, _amount: number) {
             this.name = _name;
             this.id = _name;
@@ -20,7 +18,7 @@ namespace ShopJson {
         }
 
         public static createFromJSON(_json: Article): Article {
-            return new Article(_json.name, _json.description, _json.image, _json.price, 1);
+            return new Article(_json.name, _json.description, _json.image, _json.price, _json.amount);
         }
 
         public buildDiv(_inCart: boolean): HTMLDivElement {
@@ -42,7 +40,7 @@ namespace ShopJson {
             outputDiv.append(newDescription);
             outputDiv.append(newImage);
             outputDiv.append(newPrice);
-            outputDiv.append(_inCart ? this.generateInCart() : this.generateRemoveFromCart());
+            outputDiv.append(_inCart ? this.generateInCart() : this.generateAmountControl());
 
             outputDiv.setAttribute("id", this.id);
             return outputDiv;
@@ -50,14 +48,13 @@ namespace ShopJson {
 
         public handleClickWagen(_click: MouseEvent): void {
             articleCount++;
-            priceCount += this.price;
-
-            this.counterLi = <HTMLLIElement>document.querySelector(".counter");
-            this.counterLi.innerHTML = articleCount <= 0 ? "" : ("" + articleCount);
-            this.counterLi.setAttribute("style", articleCount <= 0 ? "display:none !important" : "display:inline-block !important");
-
-            console.log(priceCount);
             this.amount += 1;
+            console.log(ShopJson.articleCount);
+            localStorage.setItem("cartAmount", "" + articleCount);
+
+            priceCount += this.price;
+            updateArticleCount();
+
             this.pushLocalStorage(this);
         }
 
@@ -85,7 +82,7 @@ namespace ShopJson {
             return newWagenLink;
         }
 
-        private generateRemoveFromCart(): HTMLDivElement {
+        private generateAmountControl(): HTMLDivElement {
             let divOutput: HTMLDivElement = document.createElement("div");
 
             let newDeleteLink: HTMLAnchorElement = document.createElement("a");
@@ -98,30 +95,57 @@ namespace ShopJson {
 
             newDeleteLink.setAttribute("href", "#/");
             newDeleteImage.setAttribute("src", "delete.png");
-            newDeleteImage.setAttribute("alt", "Einkaufswagen");
+            newDeleteImage.setAttribute("alt", "delete");
             newDeleteLink.append(newDeleteImage);
 
             newAddLink.setAttribute("href", "#/");
             newAddImage.setAttribute("src", "add.png");
-            newAddImage.setAttribute("alt", "Einkaufswagen");
+            newAddImage.setAttribute("alt", "add");
             newAddLink.append(newAddImage);
 
             newSubtractLink.setAttribute("href", "#/");
             newSubtractImage.setAttribute("src", "subtract.png");
-            newSubtractImage.setAttribute("alt", "Einkaufswagen");
+            newSubtractImage.setAttribute("alt", "subtract");
             newSubtractLink.append(newSubtractImage);
 
-            let display: HTMLSpanElement = document.createElement("span");
+            let display: HTMLInputElement = document.createElement("input");
+            display.placeholder = this.amount + "";
             display.innerHTML = this.amount + "";
+            display.addEventListener("change", this.textChange.bind(this));
 
             newDeleteLink.addEventListener("click", this.handleClickRemove.bind(this));
+            newAddLink.addEventListener("click", this.handleAmountInteraction.bind(this));
+            newSubtractLink.addEventListener("click", this.handleAmountInteraction.bind(this));
 
             divOutput.append(newDeleteLink);
             divOutput.append(newSubtractLink);
             divOutput.append(display);
             divOutput.append(newAddLink);
-            console.log(divOutput);
             return divOutput;
+        }
+        private textChange(_event: Event): void {
+            let input: HTMLInputElement = <HTMLInputElement>_event.target;
+            this.amount = +input.value;
+            localStorage.setItem(this.name, JSON.stringify(this));
+            updateArticles();
+        }
+
+        private handleAmountInteraction(_event: MouseEvent): void {
+            let target: HTMLAnchorElement = <HTMLAnchorElement>_event.target;
+            switch (target.getAttribute("alt")) {
+                case "add":
+                    this.amount++;
+                    break;
+                case "subtract":
+                    this.amount -= 1;
+                    break;
+            }
+            if (this.amount > 0) {
+                localStorage.setItem(this.name, JSON.stringify(this));
+            } else {
+                localStorage.removeItem(this.name);
+            }
+            updateArticles();
         }
     }
 }

@@ -2,16 +2,18 @@
 var ShopJson;
 (function (ShopJson) {
     window.addEventListener("load", init);
+    window.addEventListener("storage", storageChanged);
     ShopJson.articleCount = 0;
     ShopJson.priceCount = 0;
-    //export let cart: Cart;
     let divs = [];
     let showIndex;
     let categorysJSON = [];
     let category = [];
     let categorys = [];
+    let counterLi;
     function init(_event) {
         communicate("Articles.json");
+        updateArticleCount();
         loadNavListeners();
         loadSearchListener();
     }
@@ -20,11 +22,21 @@ var ShopJson;
         categorysJSON = await response.json();
         loadArticles(categorysJSON);
     }
+    function storageChanged(_event) {
+        updateArticleCount();
+    }
+    function updateArticleCount() {
+        ShopJson.articleCount = localStorage.getItem("cartAmount") != "NaN" ? +localStorage.getItem("cartAmount") : 0;
+        counterLi = document.querySelector(".counter");
+        counterLi.innerHTML = ShopJson.articleCount <= 0 ? "" : ("" + ShopJson.articleCount);
+        counterLi.setAttribute("style", ShopJson.articleCount <= 0 ? "display:none !important" : "display:inline-block !important");
+    }
+    ShopJson.updateArticleCount = updateArticleCount;
     function loadArticles(_categories) {
         for (let categoryJSON of _categories) {
             category = [];
             for (let article of categoryJSON) {
-                category.push(new ShopJson.Article(article.name, article.description, article.image, article.price, 1));
+                category.push(new ShopJson.Article(article.name, article.description, article.image, article.price, 0));
             }
             categorys.push(category);
         }
@@ -58,7 +70,6 @@ var ShopJson;
         showElementsContaining(this.value);
     }
     function showElementsContaining(_substring) {
-        console.log(_substring);
         let searchRegEx = new RegExp(_substring.toLowerCase());
         let name;
         let description;
@@ -92,7 +103,7 @@ var ShopJson;
                 showIndex = 2;
                 break;
         }
-        for (let i = 0; i <= divs.length; i++) {
+        for (let i = 0; i < divs.length; i++) {
             let div = divs[i];
             if (showIndex != -1) {
                 div.style.display = showIndex == i ? "flex" : "none";
