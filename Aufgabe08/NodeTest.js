@@ -36,8 +36,9 @@ var A08Server;
         for (let header of _response.getHeaderNames()) {
             //console.log(_response.getHeader(header));
         }
-        //console.log(_request.url);
+        //Vom Router auf der Webseite die url des _requests in Server-Konsole ausgeben lassen
         _response.write(_request.url);
+        console.log(_request.url);
         _response.end();
     }
 })(A08Server = exports.A08Server || (exports.A08Server = {}));
