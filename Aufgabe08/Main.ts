@@ -13,11 +13,6 @@ namespace Server {
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         _url += "?" + query.toString();
 
-        console.log(_url);
-
-        for (let entry of query) {
-            console.log(entry[0] + ": " + entry[1]);
-        }
         let response: Response = await fetch(_url);
         console.log(await response.text());
     }
