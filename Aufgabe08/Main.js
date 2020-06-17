@@ -12,12 +12,13 @@ var Server;
         formData = new FormData(document.forms[0]);
         let query = new URLSearchParams(formData);
         _url += "?" + query.toString();
+        console.log(_url);
         let response = await fetch(_url);
         console.log(await response.text());
     }
     function handleSubmit(_event) {
         console.log("1");
-        communicate("https://gis-example.herokuapp.com/");
+        communicate("https://dercalvino.herokuapp.com/");
         console.log("2");
     }
 })(Server || (Server = {}));

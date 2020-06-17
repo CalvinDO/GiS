@@ -13,13 +13,14 @@ namespace Server {
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         _url += "?" + query.toString();
 
+        console.log(_url);
         let response: Response = await fetch(_url);
         console.log(await response.text());
     }
 
     function handleSubmit(_event: MouseEvent): void {
         console.log("1");
-        communicate("https://gis-example.herokuapp.com/");
+        communicate("https://dercalvino.herokuapp.com/");
         console.log("2");
     }
 }

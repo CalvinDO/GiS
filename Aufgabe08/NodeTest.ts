@@ -41,16 +41,10 @@ export namespace A08Server {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         //Request-Header
         _response.setHeader("Access-Control-Allow-Origin", "*");
-
-        for (let header of _response.getHeaderNames()) {
-            //console.log(_response.getHeader(header));
-        }
-
-        //Vom Router auf der Webseite die url des _requests in Server-Konsole ausgeben lassen
-
-        _response.write(_request.url);
         
-        console.log(_request.rawHeaders);
+        //Vom Router auf der Webseite die url des _requests in Server-Konsole ausgeben lassen
+        _response.write(_request.url);
+        console.log(_request.url);
         _response.end();
     }
 }
