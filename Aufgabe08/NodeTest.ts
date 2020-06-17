@@ -21,7 +21,7 @@ export namespace A08Server {
     _response.setHeader("Access-Control-Allow-Origin", "*");
 
     _response.write(_request.url);
-    console.log("weyy" + _request);
+    console.log("weyy");
     _response.end();
   }
 }
