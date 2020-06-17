@@ -1,0 +1,23 @@
+{
+  "name": "dercalvino",
+  "version": "1.0.0",
+  "description": "My first node server",
+  "main": "index.js",
+  "dependencies": {
+    "tslint": "^6.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node Aufgabe08/NodeTest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CalvinDO/GiS.git"
+  },
+  "author": "Calvin Dell'Oro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CalvinDO/GiS/issues"
+  },
+  "homepage": "https://github.com/CalvinDO/GiS#readme"
+}
