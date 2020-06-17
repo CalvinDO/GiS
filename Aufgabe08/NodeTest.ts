@@ -46,12 +46,11 @@ export namespace A08Server {
             //console.log(_response.getHeader(header));
         }
 
-
-
         //Vom Router auf der Webseite die url des _requests in Server-Konsole ausgeben lassen
 
         _response.write(_request.url);
-        console.log(_request.url);
+        
+        console.log(_request.rawHeaders);
         _response.end();
     }
 }
