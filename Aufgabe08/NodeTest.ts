@@ -43,11 +43,11 @@ export namespace A08Server {
         _response.setHeader("Access-Control-Allow-Origin", "*");
 
         for (let header of _response.getHeaderNames()) {
-            console.log(_response.getHeader(header));
+            //console.log(_response.getHeader(header));
         }
 
+        //console.log(_request.url);
         _response.write(_request.url);
-        console.log("hall" + server);
         _response.end();
     }
 }
