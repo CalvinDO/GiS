@@ -34,22 +34,36 @@ export namespace Aufgabe09Server {
 
         let adresse: string = <string>_request.url;
         let q: url.UrlWithParsedQuery = url.parse(adresse, true);
+        let pathname: string = <string>q.pathname;
 
-        console.log("iterate through q.query keys -->");
+        console.log(pathname);
+        //_response.write(pathname);
+
+        console.log("pathname = /html: " + (pathname == "/html"));
+        console.log("pathname = /json: " + (pathname == "/json"));
+
         if (_request.url) {
-            /*
-             for (let key in q.query) {
-                 console.log(key + ": " + q.query[key]);
-                 _response.write("|||...|||");
-                 _response.write(key + ": " + q.query[key] + "<br/>");
-             }
-             */
-            let jsonString: string = JSON.stringify(q.query);
-            _response.write(jsonString);
+            if (pathname == "/json") {
+                let jsonString: string = JSON.stringify(q.query);
+                _response.write(jsonString);
+            } else if (pathname == "/html") {
+                for (let key in q.query) {
+                   // console.log(key + ": " + q.query[key]);
+                   // _response.write("|||...|||");
+                    _response.write(key + ": " + q.query[key] + "<br/>");
+                }
+            }
         }
-        
-
         _response.end();
+
+        /*
+         //  console.log("iterate through q.query keys -->");
+            for (let key in q.query) {
+                console.log(key + ": " + q.query[key]);
+                _response.write("|||...|||");
+                _response.write(key + ": " + q.query[key] + "<br/>");
+            }
+            */
         /*
         let qdata: ParsedUrlQuery = q.query;
          _response.write("q.host: " + q.host + "<br/>");

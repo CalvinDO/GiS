@@ -1,31 +1,41 @@
 namespace Aufgabe09Server {
     window.addEventListener("load", init);
     let formData: FormData;
-    let button: HTMLButtonElement;
-    let url: string = "http://localhost:8100";
+    let buttonHTML: HTMLButtonElement;
+    let buttonJSON: HTMLButtonElement;
+
+    let baseUrl: string = "https://dercalvino.herokuapp.com/";
 
     let responseDisplayDiv: HTMLDivElement;
 
     function init(_event: Event): void {
-        button = <HTMLButtonElement>document.querySelector("button[type = button]");
-        button.addEventListener("click", handleSubmit);
+        buttonJSON = <HTMLButtonElement>document.querySelector("#json");
+        buttonJSON.addEventListener("click", handleSubmitJSON);
+        buttonHTML = <HTMLButtonElement>document.querySelector("#html");
+        buttonHTML.addEventListener("click", handleSubmitHTML);
 
         loadDisplayDiv();
     }
 
-    async function communicate(_url: RequestInfo): Promise<void> {
+    async function communicate(_sendURL: RequestInfo, _isHTML: boolean): Promise<void> {
         formData = new FormData(document.forms[0]);
+        // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        _url += "?" + query.toString();
 
-        // console.log("url:  " + url);
-        let response: Response = await fetch(_url);
+        _sendURL += _isHTML ? "/html" : "/json";
+        _sendURL += "?" + query.toString();
 
+        console.log("url:  " + _sendURL);
+
+        let response: Response = await fetch(_sendURL);
         let responseText: string = await response.text();
 
         updateDisplayDiv(responseText);
-        let responseJSON: JSON = JSON.parse(responseText);
-        console.log(responseJSON);
+
+        if (!_isHTML) {
+            let responseJSON: JSON = JSON.parse(responseText);
+            console.log(responseJSON);
+        }
 
         console.log("response:  " + responseText);
     }
@@ -39,7 +49,10 @@ namespace Aufgabe09Server {
         console.log(responseDisplayDiv);
     }
 
-    function handleSubmit(_event: MouseEvent): void {
-        communicate(url);
+    function handleSubmitJSON(_event: MouseEvent): void {
+        communicate(baseUrl, false);
+    }
+    function handleSubmitHTML(_event: MouseEvent): void {
+        communicate(baseUrl, true);
     }
 }

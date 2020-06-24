@@ -3,24 +3,31 @@ var Aufgabe09Server;
 (function (Aufgabe09Server) {
     window.addEventListener("load", init);
     let formData;
-    let button;
-    let url = "http://localhost:8100";
+    let buttonHTML;
+    let buttonJSON;
+    let baseUrl = "https://dercalvino.herokuapp.com/";
     let responseDisplayDiv;
     function init(_event) {
-        button = document.querySelector("button[type = button]");
-        button.addEventListener("click", handleSubmit);
+        buttonJSON = document.querySelector("#json");
+        buttonJSON.addEventListener("click", handleSubmitJSON);
+        buttonHTML = document.querySelector("#html");
+        buttonHTML.addEventListener("click", handleSubmitHTML);
         loadDisplayDiv();
     }
-    async function communicate(_url) {
+    async function communicate(_sendURL, _isHTML) {
         formData = new FormData(document.forms[0]);
+        // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
-        _url += "?" + query.toString();
-        // console.log("url:  " + url);
-        let response = await fetch(_url);
+        _sendURL += _isHTML ? "/html" : "/json";
+        _sendURL += "?" + query.toString();
+        console.log("url:  " + _sendURL);
+        let response = await fetch(_sendURL);
         let responseText = await response.text();
         updateDisplayDiv(responseText);
-        let responseJSON = JSON.parse(responseText);
-        console.log(responseJSON);
+        if (!_isHTML) {
+            let responseJSON = JSON.parse(responseText);
+            console.log(responseJSON);
+        }
         console.log("response:  " + responseText);
     }
     function updateDisplayDiv(_responseString) {
@@ -30,8 +37,11 @@ var Aufgabe09Server;
         responseDisplayDiv = document.querySelector("footer div");
         console.log(responseDisplayDiv);
     }
-    function handleSubmit(_event) {
-        communicate(url);
+    function handleSubmitJSON(_event) {
+        communicate(baseUrl, false);
+    }
+    function handleSubmitHTML(_event) {
+        communicate(baseUrl, true);
     }
 })(Aufgabe09Server || (Aufgabe09Server = {}));
 //# sourceMappingURL=Client.js.map

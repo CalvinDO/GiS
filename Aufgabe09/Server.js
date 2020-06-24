@@ -27,19 +27,33 @@ var Aufgabe09Server;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         let adresse = _request.url;
         let q = url.parse(adresse, true);
-        console.log("iterate through q.query keys -->");
+        let pathname = q.pathname;
+        console.log(pathname);
+        //_response.write(pathname);
+        console.log("pathname = /html: " + (pathname == "/html"));
+        console.log("pathname = /json: " + (pathname == "/json"));
         if (_request.url) {
-            /*
-             for (let key in q.query) {
-                 console.log(key + ": " + q.query[key]);
-                 _response.write("|||...|||");
-                 _response.write(key + ": " + q.query[key] + "<br/>");
-             }
-             */
-            let jsonString = JSON.stringify(q.query);
-            _response.write(jsonString);
+            if (pathname == "/json") {
+                let jsonString = JSON.stringify(q.query);
+                _response.write(jsonString);
+            }
+            else if (pathname == "/html") {
+                for (let key in q.query) {
+                    // console.log(key + ": " + q.query[key]);
+                    // _response.write("|||...|||");
+                    _response.write(key + ": " + q.query[key] + "<br/>");
+                }
+            }
         }
         _response.end();
+        /*
+         //  console.log("iterate through q.query keys -->");
+            for (let key in q.query) {
+                console.log(key + ": " + q.query[key]);
+                _response.write("|||...|||");
+                _response.write(key + ": " + q.query[key] + "<br/>");
+            }
+            */
         /*
         let qdata: ParsedUrlQuery = q.query;
          _response.write("q.host: " + q.host + "<br/>");
