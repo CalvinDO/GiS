@@ -41,34 +41,34 @@
       <form action="https://dercalvino.herokuapp.com" method="get">
         <div>
           <label for="Name">Name*</label> <br>
-          <input type="text" name="Name" placeholder="Max"><br>
+          <input type="text" name="Name" id="Name" placeholder="Max"><br>
           <label for="Vorname">Vorname*</label> <br>
-          <input type="text" name="Vorname" placeholder="Mustermann"><br>
+          <input type="text" name="Vorname" id="Vorname" placeholder="Mustermann"><br>
         </div>
         <div>
-          <input type="radio" name="Tierart" value="HomoErectus">
+          <input type="radio" name="Tierart" id="HomoErectus" value="HomoErectus">
           <label for="HomoErectus">Homo Erectus</label><br>
-          <input type="radio" name="Tierart" value="HomoNeanderthalensis" checked="checked">
+          <input type="radio" name="Tierart" id="HomoNeanderthalensis" value="HomoNeanderthalensis" checked="checked">
           <label for="HomoNeanderthalensis">Homo Neanderthalensis</label><br>
-          <input type="radio" name="Tierart" value="HomoSapiens">
+          <input type="radio" name="Tierart" id="HomoSapiens" value="HomoSapiens">
           <label for="HomoSapiens">Homo Sapiens</label><br>
         </div>
         <div>
           Straße:
-          <input type="text" name="Straße" placeholder="Musterstraße"><br>
+          <input type="text" name="Straße" id="Straße" placeholder="Musterstraße"><br>
           <label for="Hausnummer">Hausnummer (2 Stellen)</label><br>
-          <input type="text" name="Hausnummer" pattern="[0-9]{2}" placeholder="42"><br>
+          <input type="text" name="Hausnummer" id="Hausnummer" pattern="[0-9]{2}" placeholder="42"><br>
           <label for="Postleitzahl">Postleitzahl (5 Stellen)</label><br>
-          <input type="text" name="Postleitzahl" pattern="[0-9]{5}" placeholder="31415"><br>
+          <input type="text" name="Postleitzahl" id="Postleitzahl" pattern="[0-9]{5}" placeholder="31415"><br>
           <label for="IBAN">IBAN* ( 22 Stellen, mit DE beginnend)</label> <br>
-          <input type="text" name="IBAN" pattern="^DE\d{2}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{2}|DE\d{20}$"
+          <input type="text" name="IBAN" id="IBAN" pattern="^DE\d{2}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{2}|DE\d{20}$"
             placeholder="IBAN" title="In Deutschland: 22 Stellen und mit DE beginnend"> <br>
           <label for="PIN">PIN* (4 Stellen)</label><br>
-          <input type="text" name="PIN" pattern="[0-9]{4}" placeholder="3141">
+          <input type="text" name="PIN" id="PIN" pattern="[0-9]{4}" placeholder="3141">
         </div>
         <button type="submit">Submit</button>
-        <button type="button" id = "html"s>Submit HTML</button>
-        <button type="button" id = "json">Submit JSON</button>
+        <button type="button" id="html">Submit HTML</button>
+        <button type="button" id="json">Submit JSON</button>
         <input type="reset" value="reset">
         <br><br><strong><i>*Pflichtfeld</i></strong><br>
       </form>

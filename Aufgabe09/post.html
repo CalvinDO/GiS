@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="PostClient.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Contact-POST</title>
+</head>
+
+<body>
+  <header class="center-wrap">
+  </header>
+  <main>
+    <div class="center-wrap">
+      <div id="PortHeader">
+        <h1 id="Portfolio">DER POST</h1>
+        <h1 id="Calvin"><i>Calvin Dell'Oro</i> </h1>
+        <div class="icons">
+          <ul>
+            <li>
+              <a href="https://www.instagram.com/dercalvino/">
+                <img id="insta" src="instagram.png" alt="Instagram"></a>
+              <a href="mailto:calvin.delloro@hs-furtwangen.de">
+                <img id="email" src="email.png" alt="Email"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <h2>
+        Kontaktieren Sie Calvin Dell'Oro
+      </h2>
+      <p>
+        <i>Hier finden Sie Möglichkeiten, mit mir in Kontakt zu treten</i>
+      </p>
+      <h3>
+        Allerdings müssen Sie zuerst Ihre Daten in dieses Formular eintragen:
+      </h3>
+      <h3>Und anschließend auf Submit klicken! Dann werden Ihre Daten an meinen Server gesendet, und zwar via POST! POST? Ja, POST!!!</h3>
+      <form action="https://dercalvino.herokuapp.com" method="get">
+        <div>
+          <label for="Benutzername">BenutzerName</label> <br>
+          <input type="text" name="Benutzername" placeholder="MaxMuMa"><br>
+          <label for="Email">Email</label> <br>
+          <input type="text" name="Email" placeholder="max.mustermann@email.to"><br>
+        </div>
+        <button type="submit">Submit</button>
+        <button type="button" id = "html">Submit HTML</button>
+        <button type="button" id = "json">Submit JSON</button>
+        <input type="reset" value="reset">
+        <br><br><strong><i>*Pflichtfeld</i></strong><br>
+      </form>
+    </div>
+  </main>
+  <br>
+  <br>
+  <footer class="center-wrap">
+    <div>
+
+    </div>
+    <br>
+    <br>
+    <aside>
+      <i><b>Impressum</b></i> <br>
+      <address>
+        Hochschule Furtwangen <br>
+        Robert-Gerwig-Platz 1 <br>
+        78120 Furtwangen <br>
+
+        Telefonzentrale: <a href="tel:07723920-0">07723 920-0</a> <br>
+        <a href="mailto:info(at)hs-furtwangen.de">info(at)hs-furtwangen.de</a> <br>
+      </address>
+    </aside>
+  </footer>
+</body>
+
+</html>
