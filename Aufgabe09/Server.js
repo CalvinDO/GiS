@@ -27,6 +27,7 @@ var Aufgabe09Server;
         console.log("pathname = /html: " + (pathname == "/html"));
         console.log("pathname = /json: " + (pathname == "/json"));
         switch (_request.method) {
+            //Post vorerst vernachlässigen, scheint unvollständig zu sein
             case "POST":
                 let body = "";
                 _request.on("data", data => {

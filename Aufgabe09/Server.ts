@@ -35,6 +35,7 @@ export namespace Aufgabe09Server {
         console.log("pathname = /json: " + (pathname == "/json"));
 
         switch (_request.method) {
+            //Post vorerst vernachlässigen, scheint unvollständig zu sein
             case "POST":
                 let body: string = "";
                 _request.on("data", data => {
