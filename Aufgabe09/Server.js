@@ -26,16 +26,28 @@ var Aufgabe09Server;
         console.log(pathname);
         console.log("pathname = /html: " + (pathname == "/html"));
         console.log("pathname = /json: " + (pathname == "/json"));
-        if (_request.url) {
-            if (pathname == "/json") {
-                let jsonString = JSON.stringify(q.query);
-                _response.write(jsonString);
-            }
-            else if (pathname == "/html") {
-                for (let key in q.query) {
-                    _response.write(key + ": " + q.query[key] + "<br/>");
+        switch (_request.method) {
+            case "POST":
+                let body = "";
+                _request.on("data", data => {
+                    body += data;
+                });
+                _request.on("end", async () => {
+                    // tslint:disable-next-line: no-any
+                    let post = JSON.parse(body);
+                });
+            case "GET":
+                if (_request.url) {
+                    if (pathname == "/json") {
+                        let jsonString = JSON.stringify(q.query);
+                        _response.write(jsonString);
+                    }
+                    else if (pathname == "/html") {
+                        for (let key in q.query) {
+                            _response.write(key + ": " + q.query[key] + "<br/>");
+                        }
+                    }
                 }
-            }
         }
         _response.end();
     }

@@ -29,25 +29,27 @@
         </div>
       </div>
       <h2>
-        Kontaktieren Sie Calvin Dell'Oro
+        Kontaktieren Sie Calvin Dell'POST
       </h2>
       <p>
-        <i>Hier finden Sie Möglichkeiten, mit mir in Kontakt zu treten</i>
+        <i>Hier finden Sie Möglichkeiten, mit mir in POST zu treten</i>
       </p>
       <h3>
-        Allerdings müssen Sie zuerst Ihre Daten in dieses Formular eintragen:
+        Allerdings müssen Sie zuerst Ihre Daten in dieses POST Formular eintragen:
       </h3>
-      <h3>Und anschließend auf Submit klicken! Dann werden Ihre Daten an meinen Server gesendet, und zwar via POST! POST? Ja, POST!!!</h3>
-      <form action="https://dercalvino.herokuapp.com" method="get">
+      <h3>Und anschließend auf Submit klicken! Dann werden Ihre Daten an meinen Server gesendet, und zwar via POST!
+        POST? Ja, POST!!!</h3>
+      <form action="https://dercalvino.herokuapp.com" method="post">
         <div>
           <label for="Benutzername">BenutzerName</label> <br>
-          <input type="text" name="Benutzername" placeholder="MaxMuMa"><br>
+          <input type="text" name="Benutzername" id="Benutzername" placeholder="MaxMuMa"><br>
           <label for="Email">Email</label> <br>
-          <input type="text" name="Email" placeholder="max.mustermann@email.to"><br>
+          <input type="text" name="Email" id="Email" placeholder="max.mustermann@email.to"><br>
+          <label for="Passwort">Passwort</label> <br>
+          <input type="password" name="Passwort" id="Passwort" placeholder="------"><br>
         </div>
         <button type="submit">Submit</button>
-        <button type="button" id = "html">Submit HTML</button>
-        <button type="button" id = "json">Submit JSON</button>
+        <button type="button">Submit POST</button>
         <input type="reset" value="reset">
         <br><br><strong><i>*Pflichtfeld</i></strong><br>
       </form>
