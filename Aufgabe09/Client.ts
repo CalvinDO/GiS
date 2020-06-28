@@ -4,7 +4,7 @@ namespace Aufgabe09Server {
     let buttonHTML: HTMLButtonElement;
     let buttonJSON: HTMLButtonElement;
 
-    let baseUrl: string = "http://localhost:8100";
+    let baseUrl: string = "https://dercalvino.herokuapp.com/";
 
     let responseDisplayDiv: HTMLDivElement;
 

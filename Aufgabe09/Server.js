@@ -6,19 +6,14 @@ const url = require("url");
 var Aufgabe09Server;
 (function (Aufgabe09Server) {
     console.log("Starting server");
-    //Den Port bekommen
     let port = Number(process.env.PORT);
-    //Wenn es den Port nicht gibt, dann
     if (!port) {
-        //setze ihn auf 8100
         port = 8100;
     }
     let server = Http.createServer();
     server.addListener("request", handleRequest);
     server.addListener("listening", handleListen);
-    //Der Server empfängt("listened") nach Verbindungsanfragen auf dem Port
     server.listen(port);
-    //Hier werden die Listener beschrieben
     function handleListen() {
         console.log("Listening");
     }
@@ -29,7 +24,6 @@ var Aufgabe09Server;
         let q = url.parse(adresse, true);
         let pathname = q.pathname;
         console.log(pathname);
-        //_response.write(pathname);
         console.log("pathname = /html: " + (pathname == "/html"));
         console.log("pathname = /json: " + (pathname == "/json"));
         if (_request.url) {
@@ -39,27 +33,11 @@ var Aufgabe09Server;
             }
             else if (pathname == "/html") {
                 for (let key in q.query) {
-                    // console.log(key + ": " + q.query[key]);
-                    // _response.write("|||...|||");
                     _response.write(key + ": " + q.query[key] + "<br/>");
                 }
             }
         }
         _response.end();
-        /*
-         //  console.log("iterate through q.query keys -->");
-            for (let key in q.query) {
-                console.log(key + ": " + q.query[key]);
-                _response.write("|||...|||");
-                _response.write(key + ": " + q.query[key] + "<br/>");
-            }
-            */
-        /*
-        let qdata: ParsedUrlQuery = q.query;
-         _response.write("q.host: " + q.host + "<br/>");
-         _response.write("q.pathname: " + q.pathname + "<br/>");
-         _response.write("q.search: " + q.search + "<br/>");
- */
     }
 })(Aufgabe09Server = exports.Aufgabe09Server || (exports.Aufgabe09Server = {}));
 //# sourceMappingURL=Server.js.map

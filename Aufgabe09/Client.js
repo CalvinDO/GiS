@@ -5,7 +5,7 @@ var Aufgabe09Server;
     let formData;
     let buttonHTML;
     let buttonJSON;
-    let baseUrl = "http://localhost:8100";
+    let baseUrl = "https://dercalvino.herokuapp.com/";
     let responseDisplayDiv;
     function init(_event) {
         buttonJSON = document.querySelector("#json");
