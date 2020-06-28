@@ -36,7 +36,6 @@ namespace Aufgabe09Server {
             let responseJSON: JSON = JSON.parse(responseText);
             console.log(responseJSON);
         }
-
         console.log("response:  " + responseText);
     }
 
@@ -46,7 +45,6 @@ namespace Aufgabe09Server {
 
     function loadDisplayDiv(): void {
         responseDisplayDiv = <HTMLDivElement>document.querySelector("footer div");
-        console.log(responseDisplayDiv);
     }
 
     function handleSubmitJSON(_event: MouseEvent): void {

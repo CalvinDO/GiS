@@ -35,7 +35,6 @@ var Aufgabe09Server;
     }
     function loadDisplayDiv() {
         responseDisplayDiv = document.querySelector("footer div");
-        console.log(responseDisplayDiv);
     }
     function handleSubmitJSON(_event) {
         communicate(baseUrl, false);
