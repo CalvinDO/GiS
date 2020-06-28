@@ -1,8 +1,6 @@
 import * as Http from "http";
 import * as url from "url";
 
-import { ParsedUrlQuery } from "querystring";
-
 export namespace Aufgabe09Server {
     console.log("Starting server");
 
