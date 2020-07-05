@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="pathnames.js"></script>
+  <script src="Client.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Contact</title>
+</head>
+
+<body>
+  <header class="center-wrap">
+  </header>
+  <main>
+    <div class="center-wrap">
+      <div id="PortHeader">
+        <h1 id="Portfolio">DER SERVER</h1>
+        <h1 id="Calvin"><i>Calvin Dell'Oro</i> </h1>
+        <div class="icons">
+          <ul>
+            <li>
+              <a href="https://www.instagram.com/dercalvino/">
+                <img id="insta" src="instagram.png" alt="Instagram"></a>
+              <a href="mailto:calvin.delloro@hs-furtwangen.de">
+                <img id="email" src="email.png" alt="Email"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <h2>
+        Kontaktieren Sie Calvin Dell'Oro
+      </h2>
+      <p>
+        <i>Hier finden Sie Möglichkeiten, mit mir in Kontakt zu treten</i>
+      </p>
+      <h3>
+        Allerdings müssen Sie zuerst Ihre Daten in dieses Formular eintragen:
+      </h3>
+      <h3>Und anschließend auf Submit klicken! Dann werden Ihre Daten an meinen Server gesendet ("muhaha")</h3>
+      <form action="https://dercalvino.herokuapp.com" method="get">
+        <div>
+          <label for="Name">Name*</label> <br>
+          <input type="text" name="Name" id="Name" placeholder="Max"><br>
+          <label for="Vorname">Vorname*</label> <br>
+          <input type="text" name="Vorname" id="Vorname" placeholder="Mustermann"><br>
+        </div>
+        <div>
+          <input type="radio" name="Tierart" id="HomoErectus" value="HomoErectus">
+          <label for="HomoErectus">Homo Erectus</label><br>
+          <input type="radio" name="Tierart" id="HomoNeanderthalensis" value="HomoNeanderthalensis" checked="checked">
+          <label for="HomoNeanderthalensis">Homo Neanderthalensis</label><br>
+          <input type="radio" name="Tierart" id="HomoSapiens" value="HomoSapiens">
+          <label for="HomoSapiens">Homo Sapiens</label><br>
+        </div>
+        <div>
+          Straße:
+          <input type="text" name="Straße" id="Straße" placeholder="Musterstraße"><br>
+          <label for="Hausnummer">Hausnummer (2 Stellen)</label><br>
+          <input type="text" name="Hausnummer" id="Hausnummer" pattern="[0-9]{2}" placeholder="42"><br>
+          <label for="Postleitzahl">Postleitzahl (5 Stellen)</label><br>
+          <input type="text" name="Postleitzahl" id="Postleitzahl" pattern="[0-9]{5}" placeholder="31415"><br>
+          <label for="IBAN">IBAN* ( 22 Stellen, mit DE beginnend)</label> <br>
+          <input type="text" name="IBAN" id="IBAN" pattern="^DE\d{2}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{4}[ ]\d{2}|DE\d{20}$"
+            placeholder="IBAN" title="In Deutschland: 22 Stellen und mit DE beginnend"> <br>
+          <label for="PIN">PIN* (4 Stellen)</label><br>
+          <input type="text" name="PIN" id="PIN" pattern="[0-9]{4}" placeholder="3141">
+        </div>
+        <button type="submit">Submit</button>
+        <button type="button" id="getData">Receive Data</button>
+        <button type="reset" id="setData">Store Data</button>
+        <button type="reset" id="resetDatabase">Reset Database</button>
+        <input type="reset" value="reset">
+        <br><br><strong><i>*Pflichtfeld</i></strong><br>
+      </form>
+    </div>
+  </main>
+  <br>
+  <br>
+  <footer class="center-wrap">
+    <div>
+
+    </div>
+    <br>
+    <br>
+    <aside>
+      <i><b>Impressum</b></i> <br>
+      <address>
+        Hochschule Furtwangen <br>
+        Robert-Gerwig-Platz 1 <br>
+        78120 Furtwangen <br>
+
+        Telefonzentrale: <a href="tel:07723920-0">07723 920-0</a> <br>
+        <a href="mailto:info(at)hs-furtwangen.de">info(at)hs-furtwangen.de</a> <br>
+      </address>
+    </aside>
+  </footer>
+</body>
+
+</html>
