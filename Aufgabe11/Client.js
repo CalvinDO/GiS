@@ -6,8 +6,8 @@ var Aufgabe09Server;
     let buttonGet;
     let buttonSet;
     let buttonResetDB;
-    let baseUrl = "http://localhost:8100";
-    //let baseUrl: string = "https://dercalvino.herokuapp.com";
+    //let baseUrl: string = "http://localhost:8100";
+    let baseUrl = "https://dercalvino.herokuapp.com";
     let responseDisplayDiv;
     function init(_event) {
         buttonGet = document.querySelector("#getData");
