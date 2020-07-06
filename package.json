@@ -4,13 +4,15 @@
   "description": "My first node server",
   "main": "index.js",
   "dependencies": {
+    "@types/mongodb": "^3.5.25",
+    "mongodb": "^3.5.9",
     "tslint": "^6.1.2"
   },
   "devDependencies": {
     "@types/node": "^14.0.13"
   },
   "scripts": {
-    "start": "node Aufgabe09/Server.js"
+    "start": "node Aufgabe11/Server.js remote"
   },
   "repository": {
     "type": "git",

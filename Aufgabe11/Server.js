@@ -61,13 +61,6 @@ var Aufgabe09Server;
             case "/get":
                 console.log("get received");
                 retrieveLoginData(_response);
-                /*
-               for (let key in q.query) {
-                   _response.write(key + ": " + q.query[key] + "<br/>");
-               }
-               let jsonString: string = JSON.stringify(q.query);
-               _response.write(jsonString);
-               */
                 break;
             case "/set":
                 console.log("set received");
@@ -86,25 +79,20 @@ var Aufgabe09Server;
     }
     async function retrieveLoginData(_response) {
         let output = await loginDataCollection.find().toArray();
-        //console.log(output);
         for (let index = 0; index < output.length; index++) {
             if (output[index]) {
-                console.log("NEW ENTRY ----<<<<>>>>----");
-                console.log("index = " + index);
-                //console.log(output[index]);
                 _response.write("|---|||---| <br/>");
                 let current = output[index];
                 console.log(current + "");
                 for (let key in current) {
-                    console.log(key + ": " + current[key].toString() + " <br/>");
-                    _response.write(key + ": " + current[key].toString() + " <br/>");
+                    //console.log(key + ": " + current[key].toString() + " <br/>");
+                    _response.write(key + ": " + JSON.stringify(current[key]) + " <br/>");
                 }
                 _response.write("|---|||---| <br/>");
             }
         }
         let valeMan = "vale man";
         console.log(valeMan);
-        //_response.write(JSON.stringify(output));
         _response.end();
         return output;
     }

@@ -8,4 +8,4 @@ var Aufgabe09Server;
         Pathnames[Pathnames["reset"] = 2] = "reset";
     })(Pathnames = Aufgabe09Server.Pathnames || (Aufgabe09Server.Pathnames = {}));
 })(Aufgabe09Server || (Aufgabe09Server = {}));
-//# sourceMappingURL=pathnames.js.map
+//# sourceMappingURL=Pathnames.js.map
