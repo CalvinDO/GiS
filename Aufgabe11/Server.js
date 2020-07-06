@@ -85,14 +85,12 @@ var Aufgabe09Server;
                 let current = output[index];
                 console.log(current + "");
                 for (let key in current) {
-                    //console.log(key + ": " + current[key].toString() + " <br/>");
+                    console.log(key + ": " + current[key].toString() + " <br/>");
                     _response.write(key + ": " + JSON.stringify(current[key]) + " <br/>");
                 }
                 _response.write("|---|||---| <br/>");
             }
         }
-        let valeMan = "vale man";
-        console.log(valeMan);
         _response.end();
         return output;
     }
