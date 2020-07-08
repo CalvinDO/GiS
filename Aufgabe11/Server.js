@@ -47,7 +47,7 @@ var Aufgabe09Server;
     function handleListen() {
         console.log("Listening");
     }
-    function handleRequest(_request, _response) {
+    async function handleRequest(_request, _response) {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         let adresse = _request.url;
@@ -60,7 +60,7 @@ var Aufgabe09Server;
         switch (pathname) {
             case "/get":
                 console.log("get received");
-                retrieveLoginData(_response);
+                await retrieveLoginData(_response);
                 break;
             case "/set":
                 console.log("set received");
@@ -73,6 +73,7 @@ var Aufgabe09Server;
             default:
                 console.log("default");
         }
+        _response.end();
     }
     function storeData(_order) {
         loginDataCollection.insertOne(_order);
