@@ -111,7 +111,6 @@ export namespace Aufgabe09Server {
                 _response.write("|---|||---| <br/>");
             }
         }
-        _response.end();
         return output;
     }
 }

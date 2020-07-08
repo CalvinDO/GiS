@@ -92,7 +92,6 @@ var Aufgabe09Server;
                 _response.write("|---|||---| <br/>");
             }
         }
-        _response.end();
         return output;
     }
 })(Aufgabe09Server = exports.Aufgabe09Server || (exports.Aufgabe09Server = {}));
