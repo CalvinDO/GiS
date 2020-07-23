@@ -9,9 +9,12 @@ namespace Eisladen {
         public static yOffsetPercentage: number = 1.618 * 2;
         public static middleGap: number;
 
+        public static orderXOffset: number;
+
         public static beltSpeed: number = 0.002;
 
-        public static currentSwitch: Switches = Switches.left;
+        public static currentSwitch: Switches = Switches.right;
+        public static currentSwitchNumber: number = 0;
 
         public static togglePoint: Vector2D;
 
@@ -35,13 +38,12 @@ namespace Eisladen {
             IncomingOrderDisplay.orderStartPosition = new Vector2D(sellerCanvas.width / 20, IncomingOrderDisplay.beltPosition.y);
             IncomingOrderDisplay.orderStartVelocity = new Vector2D(IncomingOrderDisplay.beltSpeed * 100, 0);
 
-            let newIncoming: IncomingOrder = new IncomingOrder(content, new Vector2D(IncomingOrderDisplay.orderStartPosition.x, IncomingOrderDisplay.orderStartPosition.y), new Vector2D(IncomingOrderDisplay.orderStartVelocity.x, IncomingOrderDisplay.orderStartVelocity.y));
-            IncomingOrderDisplay.incomingOrders.push(newIncoming);
 
             this.checkForData();
         }
 
         public calculate(): void {
+            IncomingOrderDisplay.orderXOffset = sellerCanvas.width / 8;
             IncomingOrderDisplay.beltPosition = new Vector2D(0, sellerCanvas.height / IncomingOrderDisplay.yOffsetPercentage);
             IncomingOrderDisplay.middleGap = 0;
             IncomingOrderDisplay.beltDimensions = new Vector2D(sellerCanvas.width / 2 - IncomingOrderDisplay.middleGap, sellerCanvas.height / 12);
@@ -66,8 +68,12 @@ namespace Eisladen {
         }
         public iterateThroughJSON(_json: any[]): void {
             for (let index: number = 0; index < _json.length; index++) {
-                console.log(_json[index].iceBalls);
-                console.log(_json[index].toppings);
+                let currentOrder: Order = <Order>_json[index];
+                currentOrder.iceBalls = JSON.parse(_json[index].iceBalls);
+                currentOrder.toppings = JSON.parse(_json[index].toppings);
+
+                let newIncoming: IncomingOrder = new IncomingOrder(currentOrder, new Vector2D(IncomingOrderDisplay.orderStartPosition.x + index * IncomingOrderDisplay.orderXOffset, IncomingOrderDisplay.orderStartPosition.y), new Vector2D(IncomingOrderDisplay.orderStartVelocity.x, IncomingOrderDisplay.orderStartVelocity.y));
+                IncomingOrderDisplay.incomingOrders.push(newIncoming);
             }
         }
         public draw(): void {

@@ -14,6 +14,16 @@ namespace Eisladen {
     export let startSellerTime: number;
     export let sellerTimeSinceStart: number;
 
+    export interface Order {
+        name: string;
+        vorname: string;
+        adresse: string;
+        price: string;
+        container: string;
+        iceBalls: string[];
+        toppings: string[];
+    }
+
     function init(_event: Event): void {
         selectTags();
         currentSellerTime = lastFrameSellerTime = startSellerTime = Date.now();

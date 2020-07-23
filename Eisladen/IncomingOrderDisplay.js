@@ -14,11 +14,10 @@ var Eisladen;
             let content = "Container: Cone <br> Gesamtpreis: 23.20€ <br><br>Chocolate: 2 <br> Vanilla: 3 <br>";
             IncomingOrderDisplay.orderStartPosition = new Vector2D(Eisladen.sellerCanvas.width / 20, IncomingOrderDisplay.beltPosition.y);
             IncomingOrderDisplay.orderStartVelocity = new Vector2D(IncomingOrderDisplay.beltSpeed * 100, 0);
-            let newIncoming = new Eisladen.IncomingOrder(content, new Vector2D(IncomingOrderDisplay.orderStartPosition.x, IncomingOrderDisplay.orderStartPosition.y), new Vector2D(IncomingOrderDisplay.orderStartVelocity.x, IncomingOrderDisplay.orderStartVelocity.y));
-            IncomingOrderDisplay.incomingOrders.push(newIncoming);
             this.checkForData();
         }
         calculate() {
+            IncomingOrderDisplay.orderXOffset = Eisladen.sellerCanvas.width / 8;
             IncomingOrderDisplay.beltPosition = new Vector2D(0, Eisladen.sellerCanvas.height / IncomingOrderDisplay.yOffsetPercentage);
             IncomingOrderDisplay.middleGap = 0;
             IncomingOrderDisplay.beltDimensions = new Vector2D(Eisladen.sellerCanvas.width / 2 - IncomingOrderDisplay.middleGap, Eisladen.sellerCanvas.height / 12);
@@ -41,8 +40,11 @@ var Eisladen;
         }
         iterateThroughJSON(_json) {
             for (let index = 0; index < _json.length; index++) {
-                console.log(_json[index].iceBalls);
-                console.log(_json[index].toppings);
+                let currentOrder = _json[index];
+                currentOrder.iceBalls = JSON.parse(_json[index].iceBalls);
+                currentOrder.toppings = JSON.parse(_json[index].toppings);
+                let newIncoming = new Eisladen.IncomingOrder(currentOrder, new Vector2D(IncomingOrderDisplay.orderStartPosition.x + index * IncomingOrderDisplay.orderXOffset, IncomingOrderDisplay.orderStartPosition.y), new Vector2D(IncomingOrderDisplay.orderStartVelocity.x, IncomingOrderDisplay.orderStartVelocity.y));
+                IncomingOrderDisplay.incomingOrders.push(newIncoming);
             }
         }
         draw() {
@@ -117,7 +119,8 @@ var Eisladen;
     }
     IncomingOrderDisplay.yOffsetPercentage = 1.618 * 2;
     IncomingOrderDisplay.beltSpeed = 0.002;
-    IncomingOrderDisplay.currentSwitch = Eisladen.Switches.left;
+    IncomingOrderDisplay.currentSwitch = Eisladen.Switches.right;
+    IncomingOrderDisplay.currentSwitchNumber = 0;
     Eisladen.IncomingOrderDisplay = IncomingOrderDisplay;
 })(Eisladen || (Eisladen = {}));
 //# sourceMappingURL=IncomingOrderDisplay.js.map

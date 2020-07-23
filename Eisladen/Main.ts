@@ -151,7 +151,7 @@ namespace Eisladen {
         let newPriceStringInput: HTMLInputElement = document.createElement("input");
 
         newPriceStringInput.setAttribute("id", "priceInput");
-        newContainerInput.setAttribute("name", "Container");
+        newContainerInput.setAttribute("name", "container");
 
         newPriceStringInput.setAttribute("value", currentContainerPriceString);
         newPriceStringInput.setAttribute("name", "price");
@@ -159,7 +159,7 @@ namespace Eisladen {
         newContainerInput.setAttribute("value", currentContainerNameString);
 
         let newContainerLabel: HTMLLabelElement = document.createElement("label");
-        newContainerLabel.setAttribute("for", "Container");
+        newContainerLabel.setAttribute("for", "container");
         newContainerLabel.innerHTML = "Container: " + "<br>";
 
         let priceLabel: HTMLLabelElement = document.createElement("label");
