@@ -41,7 +41,7 @@ namespace Eisladen {
 
         private currentShovelAngle: number = 0 * Math.PI;
         private maxShovelAngle: number = 2;
-        private shovelAngleSpeed: number = 0.1;
+        private shovelAngleSpeed: number = 0.005;
         private shovelOpen: boolean = true;
         private shovelClosed: boolean;
         private shovelTransition: boolean;
@@ -68,7 +68,7 @@ namespace Eisladen {
         private wheelAmount: number = 50;
 
 
-        private accelIncrement: Vector2D = new Vector2D(0.24, 0.2);
+        private accelIncrement: Vector2D = new Vector2D(0.0008, 0.0006);
         private accel: Vector2D = new Vector2D(0, 0);
         private currentSpeed: Vector2D = new Vector2D(0, 0);
         private friction: number = 0.985;
@@ -142,9 +142,9 @@ namespace Eisladen {
 
         public controlShovel(): void {
             if (spaceKey) {
-                this.currentShovelAngle += this.shovelAngleSpeed;
+                this.currentShovelAngle += this.shovelAngleSpeed * deltaTime;
             } else {
-                this.currentShovelAngle -= this.shovelAngleSpeed;
+                this.currentShovelAngle -= this.shovelAngleSpeed * deltaTime;
             }
 
             this.shovelTransition = true;
@@ -228,7 +228,7 @@ namespace Eisladen {
                         if (!this.inAirIceBalls) {
                             this.inAirIceBalls = [];
                         }
-                        let copyBall: IceBall = new IceBall(this.grabbedIceBall.position, this.grabbedIceBall.velocity, this.grabbedIceBall.radius, this.grabbedIceBall.iceSort, true);
+                        let copyBall: IceBall = new IceBall(this.grabbedIceBall.position, new Vector2D(this.grabbedIceBall.velocity.x / deltaTime, this.grabbedIceBall.velocity.y / deltaTime), this.grabbedIceBall.radius, this.grabbedIceBall.iceSort, true);
                         this.grabbedIceBall.visible = false;
                         this.inAirIceBalls.push(copyBall);
                     }
@@ -289,21 +289,21 @@ namespace Eisladen {
         }
         public moveTrolley(): void {
             if (rightKey) {
-                this.accel.x = this.accelIncrement.x;
+                this.accel.x = this.accelIncrement.x * deltaTime;
             } else if (leftKey) {
-                this.accel.x = -this.accelIncrement.x;
+                this.accel.x = -this.accelIncrement.x * deltaTime;
             } else {
                 this.accel.x = 0;
             }
             if (upKey) {
-                this.accel.y = -this.accelIncrement.y;
+                this.accel.y = -this.accelIncrement.y * deltaTime;
             } else if (downKey) {
-                this.accel.y = this.accelIncrement.y;
+                this.accel.y = this.accelIncrement.y * deltaTime;
             } else {
                 this.accel.y = 0;
             }
 
-            this.currentSpeed.add(this.accel);
+            this.currentSpeed.add(new Vector2D(this.accel.x * deltaTime, this.accel.y * deltaTime));
 
             this.currentSpeed.scale(this.friction);
 

@@ -1,0 +1,300 @@
+{
+    "totalPrice": 7.75,
+    "container": {
+        "name": "Cone",
+        "id": "1",
+        "price": 0.5,
+        "image": "images/Cone.png",
+        "iceBalls": [
+            {
+                "stickingToppings": [],
+                "maxToppingsPerRow": 20,
+                "stickingToppingsRowIndex": 0,
+                "position": {
+                    "x": 958.9436780523868,
+                    "y": 759.9771189331899
+                },
+                "velocity": {
+                    "x": -1.9557802399519009,
+                    "y": 4.575739715261548
+                },
+                "radius": 30.4,
+                "iceSort": {
+                    "name": "Choclate",
+                    "price": 1,
+                    "color": "#b26c3e"
+                },
+                "visible": true,
+                "stick": true
+            },
+            {
+                "stickingToppings": [],
+                "maxToppingsPerRow": 20,
+                "stickingToppingsRowIndex": 0,
+                "position": {
+                    "x": 991.0513887938141,
+                    "y": 733.9083087640103
+                },
+                "velocity": {
+                    "x": -1.9856638369735848,
+                    "y": 4.599577520474069
+                },
+                "radius": 30.4,
+                "iceSort": {
+                    "name": "Vanilla",
+                    "price": 1,
+                    "color": "#f8bd76"
+                },
+                "visible": true,
+                "stick": true
+            },
+            {
+                "stickingToppings": [
+                    {
+                        "name": "Blueberries",
+                        "price": 0.2,
+                        "color": "#2686E0",
+                        "shape": "arc",
+                        "size": 16,
+                        "position": {
+                            "x": 934.65852734247,
+                            "y": 708.300033401083
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 4.999999999999998
+                        }
+                    },
+                    {
+                        "name": "Blueberries",
+                        "price": 0.2,
+                        "color": "#2686E0",
+                        "shape": "arc",
+                        "size": 16,
+                        "position": {
+                            "x": 935.2297883388557,
+                            "y": 701.0414742232164
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 4.999999999999998
+                        }
+                    },
+                    {
+                        "name": "Blueberries",
+                        "price": 0.2,
+                        "color": "#2686E0",
+                        "shape": "arc",
+                        "size": 16,
+                        "position": {
+                            "x": 936.9295049863749,
+                            "y": 693.9616448620854
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 4.999999999999998
+                        }
+                    },
+                    {
+                        "name": "Blueberries",
+                        "price": 0.2,
+                        "color": "#2686E0",
+                        "shape": "arc",
+                        "size": 16,
+                        "position": {
+                            "x": 939.7158246201298,
+                            "y": 687.234874213168
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 4.999999999999998
+                        }
+                    },
+                    {
+                        "name": "Blueberries",
+                        "price": 0.2,
+                        "color": "#2686E0",
+                        "shape": "arc",
+                        "size": 16,
+                        "position": {
+                            "x": 943.5201388034725,
+                            "y": 681.0267976947123
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 4.999999999999998
+                        }
+                    },
+                    {
+                        "name": "Blueberries",
+                        "price": 0.2,
+                        "color": "#2686E0",
+                        "shape": "arc",
+                        "size": 16,
+                        "position": {
+                            "x": 948.2487726954142,
+                            "y": 675.4902787540273
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 4.999999999999998
+                        }
+                    },
+                    {
+                        "name": "Cookies",
+                        "price": 0.1,
+                        "color": "#efe2b2",
+                        "shape": "rect",
+                        "size": 20,
+                        "position": {
+                            "x": 951.4341506269294,
+                            "y": 667.5255768845857
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 5.099999999999998
+                        }
+                    },
+                    {
+                        "name": "Cookies",
+                        "price": 0.1,
+                        "color": "#efe2b2",
+                        "shape": "rect",
+                        "size": 20,
+                        "position": {
+                            "x": 958.1774061555968,
+                            "y": 663.3933045819894
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 5.099999999999998
+                        }
+                    },
+                    {
+                        "name": "Cookies",
+                        "price": 0.1,
+                        "color": "#efe2b2",
+                        "shape": "rect",
+                        "size": 20,
+                        "position": {
+                            "x": 965.4840708259727,
+                            "y": 660.3667849798073
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 5.099999999999998
+                        }
+                    },
+                    {
+                        "name": "Cookies",
+                        "price": 0.1,
+                        "color": "#efe2b2",
+                        "shape": "rect",
+                        "size": 20,
+                        "position": {
+                            "x": 973.1742303044424,
+                            "y": 658.5205410350882
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 5.099999999999998
+                        }
+                    },
+                    {
+                        "name": "Cookies",
+                        "price": 0.1,
+                        "color": "#efe2b2",
+                        "shape": "rect",
+                        "size": 20,
+                        "position": {
+                            "x": 981.05852734247,
+                            "y": 657.9000334010831
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 5.099999999999998
+                        }
+                    },
+                    {
+                        "name": "Cookies",
+                        "price": 0.1,
+                        "color": "#efe2b2",
+                        "shape": "rect",
+                        "size": 20,
+                        "position": {
+                            "x": 988.9428243804977,
+                            "y": 658.5205410350882
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 5.099999999999998
+                        }
+                    },
+                    {
+                        "name": "Cookies",
+                        "price": 0.1,
+                        "color": "#efe2b2",
+                        "shape": "rect",
+                        "size": 20,
+                        "position": {
+                            "x": 996.6329838589673,
+                            "y": 660.3667849798073
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 5.099999999999998
+                        }
+                    },
+                    {
+                        "name": "Cookies",
+                        "price": 0.1,
+                        "color": "#efe2b2",
+                        "shape": "rect",
+                        "size": 20,
+                        "position": {
+                            "x": 1003.9396485293432,
+                            "y": 663.3933045819894
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 5.099999999999998
+                        }
+                    },
+                    {
+                        "name": "Cookies",
+                        "price": 0.1,
+                        "color": "#efe2b2",
+                        "shape": "rect",
+                        "size": 20,
+                        "position": {
+                            "x": 1010.6829040580106,
+                            "y": 667.5255768845857
+                        },
+                        "velocity": {
+                            "x": 4,
+                            "y": 5.099999999999998
+                        }
+                    }
+                ],
+                "maxToppingsPerRow": 20,
+                "stickingToppingsRowIndex": 1,
+                "position": {
+                    "x": 981.05852734247,
+                    "y": 708.300033401083
+                },
+                "velocity": {
+                    "x": -0.6761963055493063,
+                    "y": 4.59999830163982
+                },
+                "radius": 30.4,
+                "iceSort": {
+                    "name": "Strawberry",
+                    "price": 0.75,
+                    "color": "#f8bfb9"
+                },
+                "visible": true,
+                "stick": true
+            }
+        ]
+    }
+}

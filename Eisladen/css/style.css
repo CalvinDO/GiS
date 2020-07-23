@@ -2,7 +2,9 @@ body {
     margin: 0;
     padding: 0;
     border: 0;
+    /*
     overflow: hidden;
+    */
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
@@ -228,6 +230,23 @@ p.toppingSortPriceDisplay, p.iceSortPriceDisplay, p.containerPriceDisplay {
     opacity: 60%;
 }
 
+#leave {
+    position: absolute;
+    right: 5%;
+    font-size: 240%;
+    width: 15%;
+    height: 13%;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(255, 238, 181);
+    text-align: center;
+    border-color: white;
+    border-style: solid;
+    color: inherit;
+    color: rgb(104, 58, 126);
+    text-decoration: none;
+}
+
 #versandinfos {
     width: 20%;
     position: absolute;
@@ -242,4 +261,24 @@ p.toppingSortPriceDisplay, p.iceSortPriceDisplay, p.containerPriceDisplay {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+}
+
+#invisibleData {
+    display: inline-block !important;
+}
+
+#incomingOrderRegion {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+
+#incomingOrder {
+    position: absolute;
+    z-index: 99;
+    font-size: 140%;
+    width: 12%;
+    height: 25%;
+    background-color: white;
 }

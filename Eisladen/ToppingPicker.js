@@ -47,19 +47,19 @@ var Eisladen;
             this.currentFrame = _currentFrame;
         }
         draw() {
-            this.drawBelt();
+            this.drawBelt(ToppingPicker.beltPosition, ToppingPicker.beltDimensions);
             for (let index = 0; index < ToppingPicker.toppingBuckets.length; index++) {
                 ToppingPicker.toppingBuckets[index].draw();
             }
         }
-        drawBelt() {
-            this.drawChain(ToppingPicker.beltPosition, ToppingPicker.beltDimensions, "rgb(88, 88, 88)", "rgb(0,0,0)");
-            this.wheelRadius = ToppingPicker.beltDimensions.y / 2;
+        drawBelt(_position, _dimensions) {
+            this.drawChain(_position, _dimensions, "rgb(88, 88, 88)", "rgb(0,0,0)");
+            this.wheelRadius = _dimensions.y / 2;
             for (let index = 0; index < this.wheelAmount; index++) {
-                let yPos = ToppingPicker.beltPosition.y + (ToppingPicker.beltDimensions.y / 2);
-                let xPos = (ToppingPicker.beltPosition.x + ToppingPicker.beltDimensions.x) - (this.wheelRadius + ToppingPicker.beltPosition.x + index * (this.wheelRadius * 2 + this.wheelBorderRadius));
+                let yPos = _position.y + (_dimensions.y / 2);
+                let xPos = (_position.x + _dimensions.x) - (this.wheelRadius + ToppingPicker.beltPosition.x + index * (this.wheelRadius * 2 + this.wheelBorderRadius));
                 let newPos = new Vector2D(xPos, yPos);
-                let currentRotation = -this.currentFrame * ToppingPicker.beltSpeed;
+                let currentRotation = -Eisladen.timeSinceStart * ToppingPicker.beltSpeed;
                 this.drawWheel(newPos, this.wheelRadius, this.wheelBorderRadius, currentRotation, "rgb(204, 204, 204)", "rgb(0,0,0)");
             }
         }
@@ -99,7 +99,7 @@ var Eisladen;
         }
     }
     ToppingPicker.toppingBuckets = [];
-    ToppingPicker.beltSpeed = 4;
+    ToppingPicker.beltSpeed = 0.005;
     Eisladen.ToppingPicker = ToppingPicker;
 })(Eisladen || (Eisladen = {}));
 //# sourceMappingURL=ToppingPicker.js.map

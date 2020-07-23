@@ -33,13 +33,15 @@ namespace Eisladen {
             if (!this.stick) {
 
                 if (this.isBeltCollision()) {
-                    this.velocity = new Vector2D(ToppingPicker.beltSpeed, 0);
+                    this.velocity = new Vector2D(ToppingPicker.beltSpeed * 50, 0);
                 } else {
-                    this.velocity.add(Eisladen.gravity);
+
+                    this.velocity.add(new Vector2D(Eisladen.gravity.x * deltaTime, Eisladen.gravity.y * deltaTime));
                 }
-                this.position.add(this.velocity);
+                this.position.add(new Vector2D(this.velocity.x * deltaTime, this.velocity.y * deltaTime));
                 if (this.isContainerCollision()) {
                     this.stick = true;
+                    Eisladen.updateLocalStorage();
                     if (IcePicker.stackedBalls.length > 0) {
 
                         let newToppingToPlace: Topping = new Topping(this.name, this.price, this.size, this.color, this.shape, new Vector2D(this.position.x, this.position.y), new Vector2D(this.velocity.x, this.velocity.y));

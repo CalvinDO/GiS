@@ -22,13 +22,13 @@ namespace Aufgabe09Server {
         loadDisplayDiv();
     }
 
-    async function communicate(_sendURL: RequestInfo, _isRetrieve: Pathnames): Promise<void> {
+    async function communicate(_sendURL: RequestInfo, _pathname: Pathnames): Promise<void> {
         formData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
 
         _sendURL += "/";
-        _sendURL += "" + Pathnames[_isRetrieve];
+        _sendURL += "" + Pathnames[_pathname];
         _sendURL += "?" + query.toString();
 
         console.log("url:  " + _sendURL);

@@ -4,7 +4,7 @@ var Eisladen;
     var Vector2D = Vector.Vector2D;
     class IceBucket {
         constructor(_position, _dimensions, _iceSort) {
-            this.maxFrameTillCutOutVanish = 200;
+            this.maxTimeTillCutOutToVanish = 4000;
             this.position = _position;
             this.dimensions = _dimensions;
             this.borderWidth = this.dimensions.x / 12;
@@ -67,18 +67,18 @@ var Eisladen;
             Eisladen.crc2.globalAlpha = 1;
         }
         setCutOut(_position, _radius, _frame) {
-            this.frameAtCoutOut = _frame;
+            this.timeAtCutOut = Eisladen.timeSinceStart;
             this.isCutOut = true;
             this.cutOutBallPos = _position;
             this.cutOutBallRadius = _radius;
         }
         drawCutOut(_currentFrame) {
-            let deltaFrame = (_currentFrame - this.frameAtCoutOut);
-            if (deltaFrame >= this.maxFrameTillCutOutVanish) {
+            let diffTime = (Eisladen.timeSinceStart - this.timeAtCutOut);
+            if (diffTime >= this.maxTimeTillCutOutToVanish) {
                 Eisladen.crc2.globalAlpha = 0;
             }
             else {
-                Eisladen.crc2.globalAlpha = 1 - (deltaFrame) / this.maxFrameTillCutOutVanish;
+                Eisladen.crc2.globalAlpha = 1 - (diffTime) / this.maxTimeTillCutOutToVanish;
             }
             if (this.isCutOut) {
                 Eisladen.crc2.beginPath();

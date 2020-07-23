@@ -18,12 +18,12 @@ var Aufgabe09Server;
         buttonResetDB.addEventListener("click", handleButtons);
         loadDisplayDiv();
     }
-    async function communicate(_sendURL, _isRetrieve) {
+    async function communicate(_sendURL, _pathname) {
         formData = new FormData(document.forms[0]);
         // tslint:disable-next-line: no-any
         let query = new URLSearchParams(formData);
         _sendURL += "/";
-        _sendURL += "" + Aufgabe09Server.Pathnames[_isRetrieve];
+        _sendURL += "" + Aufgabe09Server.Pathnames[_pathname];
         _sendURL += "?" + query.toString();
         console.log("url:  " + _sendURL);
         let response = await fetch(_sendURL);

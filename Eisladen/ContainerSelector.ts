@@ -42,7 +42,6 @@ namespace Eisladen {
 
             ContainerSelector.loadContainersFromJSON("json/containersData.json");
             ContainerSelector.containerSelection.setAttribute("style", "left: " + ContainerSelector.startContainerSelectionLeft);
-
         }
 
         public static async loadContainersFromJSON(_url: RequestInfo): Promise<void> {
@@ -138,7 +137,7 @@ namespace Eisladen {
             ContainerSelector.containerSelection.setAttribute("style", "top: " + ContainerSelector.currentTotalOffset.y + "px; left: " + ContainerSelector.currentAbsolutePercentage + "%");
             ContainerSelector.iterateThroughContainerSelections();
 
-          
+
         }
     }
 }

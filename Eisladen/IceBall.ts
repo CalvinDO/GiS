@@ -39,12 +39,12 @@ namespace Eisladen {
             this.position = _position;
         }
         public calculateIndependent(): void {
-            this.velocity.add(Eisladen.gravity);
+            this.velocity.add(new Vector2D(Eisladen.gravity.x * deltaTime, Eisladen.gravity.y * deltaTime));
 
             if (this.stick) {
                 this.velocity.scale(0);
             }
-            this.position.add(this.velocity);
+            this.position.add(new Vector2D(this.velocity.x * deltaTime, this.velocity.y * deltaTime));
             if (this.isContainerCollision()) {
                 this.stick = true;
             }
@@ -88,8 +88,6 @@ namespace Eisladen {
             let y: number = fakeRadius * Math.cos(angle) + this.position.y;
             _topping.position = new Vector2D(x, y);
             this.stickingToppings.push(_topping);
-
-           
         }
 
         public clone(): IceBall {

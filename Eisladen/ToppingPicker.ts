@@ -9,7 +9,7 @@ namespace Eisladen {
         public static beltPosition: Vector2D;
         public static beltDimensions: Vector2D;
 
-        public static beltSpeed: number = 4;
+        public static beltSpeed: number = 0.005;
 
         private static toppingBucketWidth: number;
         private static toppingBucketHeight: number;
@@ -75,21 +75,21 @@ namespace Eisladen {
             this.currentFrame = _currentFrame;
         }
         public draw(): void {
-            this.drawBelt();
+            this.drawBelt(ToppingPicker.beltPosition, ToppingPicker.beltDimensions);
             for (let index: number = 0; index < ToppingPicker.toppingBuckets.length; index++) {
                 ToppingPicker.toppingBuckets[index].draw();
             }
 
         }
-        private drawBelt(): void {
-            this.drawChain(ToppingPicker.beltPosition, ToppingPicker.beltDimensions, "rgb(88, 88, 88)", "rgb(0,0,0)");
-            this.wheelRadius = ToppingPicker.beltDimensions.y / 2;
+        private drawBelt(_position: Vector2D, _dimensions: Vector2D): void {
+            this.drawChain(_position, _dimensions, "rgb(88, 88, 88)", "rgb(0,0,0)");
+            this.wheelRadius = _dimensions.y / 2;
 
             for (let index: number = 0; index < this.wheelAmount; index++) {
-                let yPos: number = ToppingPicker.beltPosition.y + (ToppingPicker.beltDimensions.y / 2);
-                let xPos: number = (ToppingPicker.beltPosition.x + ToppingPicker.beltDimensions.x) - (this.wheelRadius + ToppingPicker.beltPosition.x + index * (this.wheelRadius * 2 + this.wheelBorderRadius));
+                let yPos: number = _position.y + (_dimensions.y / 2);
+                let xPos: number = (_position.x + _dimensions.x) - (this.wheelRadius + ToppingPicker.beltPosition.x + index * (this.wheelRadius * 2 + this.wheelBorderRadius));
                 let newPos: Vector2D = new Vector2D(xPos, yPos);
-                let currentRotation: number = -this.currentFrame * ToppingPicker.beltSpeed;
+                let currentRotation: number = -timeSinceStart * ToppingPicker.beltSpeed;
                 this.drawWheel(newPos, this.wheelRadius, this.wheelBorderRadius, currentRotation, "rgb(204, 204, 204)", "rgb(0,0,0)");
             }
         }

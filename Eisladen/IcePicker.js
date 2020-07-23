@@ -12,14 +12,14 @@ var Eisladen;
             this.shovelBorderRadius = 8;
             this.currentShovelAngle = 0 * Math.PI;
             this.maxShovelAngle = 2;
-            this.shovelAngleSpeed = 0.1;
+            this.shovelAngleSpeed = 0.005;
             this.shovelOpen = true;
             this.grabValid = true;
             this.wheelBorderRadius = 5;
             this.spokeAmount = 6;
             this.spokeWidth = 3;
             this.wheelAmount = 50;
-            this.accelIncrement = new Vector2D(0.24, 0.2);
+            this.accelIncrement = new Vector2D(0.0008, 0.0006);
             this.accel = new Vector2D(0, 0);
             this.currentSpeed = new Vector2D(0, 0);
             this.friction = 0.985;
@@ -77,10 +77,10 @@ var Eisladen;
         }
         controlShovel() {
             if (Eisladen.spaceKey) {
-                this.currentShovelAngle += this.shovelAngleSpeed;
+                this.currentShovelAngle += this.shovelAngleSpeed * Eisladen.deltaTime;
             }
             else {
-                this.currentShovelAngle -= this.shovelAngleSpeed;
+                this.currentShovelAngle -= this.shovelAngleSpeed * Eisladen.deltaTime;
             }
             this.shovelTransition = true;
             this.shovelOpen = false;
@@ -157,7 +157,7 @@ var Eisladen;
                         if (!this.inAirIceBalls) {
                             this.inAirIceBalls = [];
                         }
-                        let copyBall = new Eisladen.IceBall(this.grabbedIceBall.position, this.grabbedIceBall.velocity, this.grabbedIceBall.radius, this.grabbedIceBall.iceSort, true);
+                        let copyBall = new Eisladen.IceBall(this.grabbedIceBall.position, new Vector2D(this.grabbedIceBall.velocity.x / Eisladen.deltaTime, this.grabbedIceBall.velocity.y / Eisladen.deltaTime), this.grabbedIceBall.radius, this.grabbedIceBall.iceSort, true);
                         this.grabbedIceBall.visible = false;
                         this.inAirIceBalls.push(copyBall);
                     }
@@ -214,24 +214,24 @@ var Eisladen;
         }
         moveTrolley() {
             if (Eisladen.rightKey) {
-                this.accel.x = this.accelIncrement.x;
+                this.accel.x = this.accelIncrement.x * Eisladen.deltaTime;
             }
             else if (Eisladen.leftKey) {
-                this.accel.x = -this.accelIncrement.x;
+                this.accel.x = -this.accelIncrement.x * Eisladen.deltaTime;
             }
             else {
                 this.accel.x = 0;
             }
             if (Eisladen.upKey) {
-                this.accel.y = -this.accelIncrement.y;
+                this.accel.y = -this.accelIncrement.y * Eisladen.deltaTime;
             }
             else if (Eisladen.downKey) {
-                this.accel.y = this.accelIncrement.y;
+                this.accel.y = this.accelIncrement.y * Eisladen.deltaTime;
             }
             else {
                 this.accel.y = 0;
             }
-            this.currentSpeed.add(this.accel);
+            this.currentSpeed.add(new Vector2D(this.accel.x * Eisladen.deltaTime, this.accel.y * Eisladen.deltaTime));
             this.currentSpeed.scale(this.friction);
             if (this.currentSpeed.x < 0 && this.currentTrolleyOffset < 0) {
                 this.currentSpeed.x *= -1;

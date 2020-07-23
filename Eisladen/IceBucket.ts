@@ -9,8 +9,8 @@ namespace Eisladen {
         public cutOutBallPos: Vector2D;
         public cutOutBallRadius: number;
         public isCutOut: boolean;
-        public frameAtCoutOut: number;
-        public maxFrameTillCutOutVanish: number = 200;
+        public timeAtCutOut: number;
+        public maxTimeTillCutOutToVanish: number = 4000;
 
         public sortHeadingPosition: Vector2D;
         public sortPricePosition: Vector2D;
@@ -90,17 +90,17 @@ namespace Eisladen {
             crc2.globalAlpha = 1;
         }
         public setCutOut(_position: Vector2D, _radius: number, _frame: number): void {
-            this.frameAtCoutOut = _frame;
+            this.timeAtCutOut = timeSinceStart;
             this.isCutOut = true;
             this.cutOutBallPos = _position;
             this.cutOutBallRadius = _radius;
         }
         public drawCutOut(_currentFrame: number): void {
-            let deltaFrame: number = (_currentFrame - this.frameAtCoutOut);
-            if (deltaFrame >= this.maxFrameTillCutOutVanish) {
+            let diffTime: number = (timeSinceStart - this.timeAtCutOut);
+            if (diffTime >= this.maxTimeTillCutOutToVanish) {
                 Eisladen.crc2.globalAlpha = 0;
             } else {
-                Eisladen.crc2.globalAlpha = 1 - (deltaFrame) / this.maxFrameTillCutOutVanish;
+                Eisladen.crc2.globalAlpha = 1 - (diffTime) / this.maxTimeTillCutOutToVanish;
             }
             if (this.isCutOut) {
                 Eisladen.crc2.beginPath();

@@ -18,14 +18,15 @@ var Eisladen;
         calculate() {
             if (!this.stick) {
                 if (this.isBeltCollision()) {
-                    this.velocity = new Vector2D(Eisladen.ToppingPicker.beltSpeed, 0);
+                    this.velocity = new Vector2D(Eisladen.ToppingPicker.beltSpeed * 50, 0);
                 }
                 else {
-                    this.velocity.add(Eisladen.gravity);
+                    this.velocity.add(new Vector2D(Eisladen.gravity.x * Eisladen.deltaTime, Eisladen.gravity.y * Eisladen.deltaTime));
                 }
-                this.position.add(this.velocity);
+                this.position.add(new Vector2D(this.velocity.x * Eisladen.deltaTime, this.velocity.y * Eisladen.deltaTime));
                 if (this.isContainerCollision()) {
                     this.stick = true;
+                    Eisladen.updateLocalStorage();
                     if (Eisladen.IcePicker.stackedBalls.length > 0) {
                         let newToppingToPlace = new Topping(this.name, this.price, this.size, this.color, this.shape, new Vector2D(this.position.x, this.position.y), new Vector2D(this.velocity.x, this.velocity.y));
                         Eisladen.IcePicker.stackedBalls[Eisladen.IcePicker.stackedBalls.length - 1].placeToppingAround(newToppingToPlace);

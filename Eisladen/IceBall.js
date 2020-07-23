@@ -27,11 +27,11 @@ var Eisladen;
             this.position = _position;
         }
         calculateIndependent() {
-            this.velocity.add(Eisladen.gravity);
+            this.velocity.add(new Vector2D(Eisladen.gravity.x * Eisladen.deltaTime, Eisladen.gravity.y * Eisladen.deltaTime));
             if (this.stick) {
                 this.velocity.scale(0);
             }
-            this.position.add(this.velocity);
+            this.position.add(new Vector2D(this.velocity.x * Eisladen.deltaTime, this.velocity.y * Eisladen.deltaTime));
             if (this.isContainerCollision()) {
                 this.stick = true;
             }

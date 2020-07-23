@@ -8,6 +8,8 @@ namespace Eisladen {
         public topping: Topping;
 
         public currentFrame: number = 0;
+        public timeAtLastDrop: number = 0;
+        public timeSinceLastDrop: number = 0;
 
         public sortHeadingPosition: Vector2D;
         public sortPricePosition: Vector2D;
@@ -30,6 +32,8 @@ namespace Eisladen {
 
             this.generateTags();
             this.fillBucket();
+
+            this.timeAtLastDrop = this.timeSinceLastDrop = timeSinceStart;
         }
         public fillBucket(): void {
             this.visualContent = [];
@@ -85,7 +89,7 @@ namespace Eisladen {
                 }
             }
         }
-
+        
         public checkMouseClick(_x: number, _y: number): void {
             let hit: boolean = true;
             if (_x < this.position.x || _x > this.position.x + this.dimensions.x) {
@@ -110,8 +114,14 @@ namespace Eisladen {
             for (let index: number = 0; index < this.airToppings.length; index++) {
                 this.airToppings[index].calculate();
             }
-            if (this.gapOpened && _currentFrame % 10 == 0) {
-                this.dropContent();
+            if (this.gapOpened) {
+                this.timeSinceLastDrop = timeSinceStart - this.timeAtLastDrop;
+
+                if (this.timeSinceLastDrop > 250) {
+                    this.timeSinceLastDrop = 0;
+                    this.timeAtLastDrop = timeSinceStart;
+                    this.dropContent();
+                }
             }
         }
         public dropContent(): void {

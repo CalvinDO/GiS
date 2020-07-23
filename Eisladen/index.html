@@ -15,7 +15,7 @@
     <script src="ToppingPicker.js"></script>
     <script src="Container.js"></script>
     <script src="IceOrder.js"></script>
-    
+    <script src="ActionTypes.js"></script>
     <script src="Main.js"></script>
 
     <title>Zum braunen Schneeball</title>
@@ -56,16 +56,22 @@
                         Reset
                     </div>
                 </nav>
+                <a href="seller.html" id="leave">
+                    Zum Verkäufer
+                </a>
             </div>
             <form action="" method="get" id="versandinfos">
                 <label for="Name">Name</label> <br>
-                <input required type="text" id="Name" placeholder="Mustermann"><br>
+                <input type="text" name="Name" id="Name" placeholder="Mustermann"><br>
                 <label for="Vorname">Vorname</label> <br>
-                <input required type="text" id="Vorname" placeholder="Max"><br>
+                <input type="text" name="Vorname" id="Vorname" placeholder="Max"><br>
                 <label for="Adresse">Adresse</label> <br>
-                <input required type="text" id="Adresse" placeholder="Musterstraße 42"> <br>
+                <input type="text" name="Adresse" id="Adresse" placeholder="Musterstraße 42"> <br>
                 <input id="realSubmit" type="button" value="Submit"></button>
                 <input type="reset" value="Reset">
+                <div id="invisibleData">
+
+                    </section>
             </form>
         </main>
         <footer>

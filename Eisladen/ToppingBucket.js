@@ -5,6 +5,8 @@ var Eisladen;
     class ToppingBucket {
         constructor(_position, _dimensions, _topping) {
             this.currentFrame = 0;
+            this.timeAtLastDrop = 0;
+            this.timeSinceLastDrop = 0;
             this.airToppings = [];
             this.position = _position;
             this.dimensions = _dimensions;
@@ -12,6 +14,7 @@ var Eisladen;
             this.topping = _topping;
             this.generateTags();
             this.fillBucket();
+            this.timeAtLastDrop = this.timeSinceLastDrop = Eisladen.timeSinceStart;
         }
         fillBucket() {
             this.visualContent = [];
@@ -81,8 +84,13 @@ var Eisladen;
             for (let index = 0; index < this.airToppings.length; index++) {
                 this.airToppings[index].calculate();
             }
-            if (this.gapOpened && _currentFrame % 10 == 0) {
-                this.dropContent();
+            if (this.gapOpened) {
+                this.timeSinceLastDrop = Eisladen.timeSinceStart - this.timeAtLastDrop;
+                if (this.timeSinceLastDrop > 250) {
+                    this.timeSinceLastDrop = 0;
+                    this.timeAtLastDrop = Eisladen.timeSinceStart;
+                    this.dropContent();
+                }
             }
         }
         dropContent() {
