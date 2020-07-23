@@ -52,7 +52,6 @@ namespace Wingsuit {
         vPointer.y = yMouse;
     }
 
-
     function drawBackground(_x: number, _y: number, _w: number, _h: number): void {
         crc2.beginPath();
         crc2.strokeStyle = "rgb(102, 255, 255)";

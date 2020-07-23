@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Choclate",
+        "price": 1,
+        "color": "#b26c3e"
+    },
+    {
+        "name": "Vanilla",
+        "price": 1,
+        "color": "#f8bd76"
+    },
+    {
+        "name": "Strawberry",
+        "price": 0.75,
+        "color": "#f8bfb9"
+    },
+    {
+        "name": "Blue Angel",
+        "price": 1.5,
+        "color": "#74D1D0"
+    },
+    {
+        "name": "Pistachio",
+        "price": 1.75,
+        "color": "#d5dfc4"
+    }
+]

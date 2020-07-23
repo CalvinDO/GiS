@@ -4,47 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="./css/style.css">
-    <title>Der Eisladen</title>
+    <script src="Vector.js"></script>
+    <script src="IceBall.js"></script>
+    <script src="IceBucket.js"></script>
+    <script src="ContainerSelector.js"></script>
+    <script src="IcePicker.js"></script>
+    <script src="Topping.js"></script>
+    <script src="ToppingBucket.js"></script>
+    <script src="ToppingPicker.js"></script>
+    <script src="Container.js"></script>
+    <script src="IceOrder.js"></script>
+    
+    <script src="Main.js"></script>
+
+    <title>Zum braunen Schneeball</title>
 </head>
 
 <body>
     <canvas width="1920" height="1080">
     </canvas>
-    <div class="overlay">
+    <div id="overlay">
         <header>
-            <nav>
-                <list>
-                    <ul>
-                        <li>
-                            cat1
-                        </li>
-                        <li>
-                            cat2
-                        </li>
-                        <li>
-                            cat3
-                        </li>
-                    </ul>
-                </list>
-            </nav>
+            <h1>
+                Zum braunen Schneeball
+            </h1>
+            <p id="totalPriceDisplay">
+                0€
+            </p>
         </header>
         <main>
-            <div>
-                banner
+            <div id="bucket-bar">
+                <nav id="bucket-selection-buttons">
+                    <img src="images/Menu/arrow.png" class="bucketMenuArrow" id="bucketRight">
+                    <img src="images/Menu/arrow.png" class="bucketMenuArrow" id="bucketLeft">
+                </nav>
             </div>
-            <div>
-                <h2>
-                    Zum braunen Schneeball
-                </h2>
-                <h3>
-                    Header 3
-                </h3>
+            <div id="counter-bar">
+                <nav id="container-selection-buttons">
+                    <img src="images/Menu/arrow.png" class="menuArrow" id="left">
+                    <img src="images/Menu/arrow.png" class="menuArrow" id="right">
+                </nav>
+                <nav id="container-selection">
+                </nav>
+
+                <nav id="control-panel">
+                    <div id="buy">
+                        Buy
+                    </div>
+                    <div id="reset">
+                        Reset
+                    </div>
+                </nav>
             </div>
-            <div>
-                
-            </div>
+            <form action="" method="get" id="versandinfos">
+                <label for="Name">Name</label> <br>
+                <input required type="text" id="Name" placeholder="Mustermann"><br>
+                <label for="Vorname">Vorname</label> <br>
+                <input required type="text" id="Vorname" placeholder="Max"><br>
+                <label for="Adresse">Adresse</label> <br>
+                <input required type="text" id="Adresse" placeholder="Musterstraße 42"> <br>
+                <input id="realSubmit" type="button" value="Submit"></button>
+                <input type="reset" value="Reset">
+            </form>
         </main>
         <footer>
 

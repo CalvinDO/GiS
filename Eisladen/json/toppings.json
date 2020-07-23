@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Choclate Sprinkles",
+        "price": 0.05,
+        "color": "#664845",
+        "size": 15,
+        "shape": "rect"
+    },
+    {
+        "name": "Nut Crunchy",
+        "price": 0.15,
+        "color": "#d6aa80",
+        "size": 10,
+        "shape": "arc"
+    },
+    {
+        "name": "Cookies",
+        "price": 0.1,
+        "color": "#efe2b2",
+        "size": 20,
+        "shape": "rect"
+    },
+    {
+        "name": "Blueberries",
+        "price": 0.2,
+        "color": "#2686E0",
+        "size": 16,
+        "shape": "arc"
+    }
+]

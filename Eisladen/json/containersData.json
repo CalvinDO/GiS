@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Hand",
+        "id": "0",
+        "price": 0,
+        "image": "images/Hand.png"
+    },
+    {
+        "name": "Cone",
+        "id": "1",
+        "price": 0.5,
+        "image": "images/Cone.png"
+    },
+    {
+        "name": "Cup",
+        "id": "2",
+        "price": 0.75,
+        "image": "images/Cup.png"
+    }
+]
