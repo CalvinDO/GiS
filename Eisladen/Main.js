@@ -20,6 +20,7 @@ var Eisladen;
     let submit;
     let reset;
     let totalPriceDisplay;
+    let totalPriceFromLocalStorage = 0;
     function init(_event) {
         ContainerSelector.init();
         selectTags();
@@ -29,6 +30,7 @@ var Eisladen;
             console.log(Eisladen.iceOrder);
             if (Eisladen.iceOrder.container) {
                 Eisladen.localStorageIceOrderContainerReady = true;
+                totalPriceFromLocalStorage = +Eisladen.iceOrder.totalPrice;
                 if (Eisladen.iceOrder.container.iceBalls) {
                     Eisladen.localStorageIceOrderIceBallsReady = true;
                 }
@@ -42,7 +44,6 @@ var Eisladen;
         animate();
     }
     function updateLocalStorage() {
-        console.log(Eisladen.iceOrder);
         localStorage.setItem("currentIceOrder", JSON.stringify(Eisladen.iceOrder));
     }
     Eisladen.updateLocalStorage = updateLocalStorage;
@@ -101,6 +102,7 @@ var Eisladen;
     }
     function animate() {
         frameCounter++;
+        Eisladen.currentDate = new Date();
         drawBackground(-Eisladen.canvas.width, -Eisladen.canvas.height, Eisladen.canvas.width * 2, Eisladen.canvas.height * 2);
         icePicker.calculate(frameCounter);
         toppingPicker.calculate(frameCounter);
@@ -110,9 +112,8 @@ var Eisladen;
         icePicker.draw(frameCounter);
         toppingPicker.draw();
         let roundedTotalPrice = Math.round((Eisladen.totalPriceWithoutContainer + ContainerSelector.containerPrice) * 1000) / 1000;
-        totalPriceDisplay.innerHTML = roundedTotalPrice + "€";
-        Eisladen.iceOrder.totalPrice = roundedTotalPrice + "€";
-        Eisladen.updateLocalStorage();
+        Eisladen.iceOrder.totalPrice = roundedTotalPrice + totalPriceFromLocalStorage;
+        totalPriceDisplay.innerHTML = Eisladen.iceOrder.totalPrice + "€";
         //localStorage.setItem("currentIceBalls", JSON.stringify(iceOrder.container.iceBalls));
         versandForm.setAttribute("style", versandIsDisplayed ? "display: inline-block !important" : "display: none !important");
         requestAnimationFrame(animate);

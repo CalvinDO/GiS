@@ -90,6 +90,7 @@ var Eisladen;
             let newTopping = Eisladen.Topping.getPhysicalCloneFrom(this.topping, position, new Vector2D(0, 0));
             this.airToppings.push(newTopping);
             Eisladen.totalPriceWithoutContainer += this.topping.price;
+            Eisladen.updateLocalStorage();
         }
         drawVisualContent() {
             for (let index = 0; index < this.visualContent.length; index++) {

@@ -96,7 +96,6 @@ namespace Eisladen {
                 for (let index: number = 0; index < Eisladen.iceOrder.container.iceBalls.length; index++) {
                     let currentSillyIceBall: IceBall = Eisladen.iceOrder.container.iceBalls[index];
                     IcePicker.stackedBalls[index] = IceBall.generateFromSillyJSON(currentSillyIceBall);
-                    console.log(IcePicker.stackedBalls[index]);
                 }
             }
         }
@@ -128,8 +127,6 @@ namespace Eisladen {
             this.jsonLoadingFinished = true;
             this.generateIceBuckets(IcePicker.iceSorts);
         }
-
-
 
         public generateIceBuckets(_iceSorts: IceSort[]): void {
             IcePicker.iceBuckets = [];
@@ -251,7 +248,6 @@ namespace Eisladen {
                         this.inAirIceBalls.pop();
                         for (let index: number = 0; index < IcePicker.stackedBalls.length; index++) {
                             let currentBall: IceBall = IcePicker.stackedBalls[index];
-                            console.log(currentBall);
                             currentBall.position.add(ContainerSelector.offsetPerBall);
                             for (let topIndex: number = 0; topIndex < currentBall.stickingToppings.length; topIndex++) {
                                 currentBall.stickingToppings[topIndex].position.add(ContainerSelector.offsetPerBall);

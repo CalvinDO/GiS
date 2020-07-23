@@ -52,9 +52,15 @@ namespace Eisladen {
     let reset: HTMLDivElement;
 
     let totalPriceDisplay: HTMLParagraphElement;
+    let totalPriceFromLocalStorage: number = 0;
 
     export let localStorageIceOrderContainerReady: boolean;
     export let localStorageIceOrderIceBallsReady: boolean;
+
+
+    export let currentDate: Date;
+    export let lastFrameDate: Date;
+    export let deltaTime: number;
 
     function init(_event: Event): void {
         ContainerSelector.init();
@@ -68,6 +74,7 @@ namespace Eisladen {
             console.log(iceOrder);
             if (iceOrder.container) {
                 localStorageIceOrderContainerReady = true;
+                totalPriceFromLocalStorage = +iceOrder.totalPrice;
                 if (iceOrder.container.iceBalls) {
                     localStorageIceOrderIceBallsReady = true;
                 }
@@ -83,7 +90,6 @@ namespace Eisladen {
     }
 
     export function updateLocalStorage(): void {
-        console.log(Eisladen.iceOrder);
         localStorage.setItem("currentIceOrder", JSON.stringify(Eisladen.iceOrder));
     }
     function loadIceFromLocalStorage(): IceOrder {
@@ -149,6 +155,10 @@ namespace Eisladen {
     }
     function animate(): void {
         frameCounter++;
+
+        currentDate = new Date();
+        
+
         drawBackground(-canvas.width, -canvas.height, canvas.width * 2, canvas.height * 2);
         icePicker.calculate(frameCounter);
         toppingPicker.calculate(frameCounter);
@@ -161,10 +171,9 @@ namespace Eisladen {
 
         let roundedTotalPrice: number = Math.round((totalPriceWithoutContainer + ContainerSelector.containerPrice) * 1000) / 1000;
 
-        totalPriceDisplay.innerHTML = roundedTotalPrice + "€";
-        iceOrder.totalPrice = roundedTotalPrice + "€";
+        iceOrder.totalPrice = roundedTotalPrice + totalPriceFromLocalStorage;
+        totalPriceDisplay.innerHTML = iceOrder.totalPrice + "€";
 
-        Eisladen.updateLocalStorage();
         //localStorage.setItem("currentIceBalls", JSON.stringify(iceOrder.container.iceBalls));
 
         versandForm.setAttribute("style", versandIsDisplayed ? "display: inline-block !important" : "display: none !important");

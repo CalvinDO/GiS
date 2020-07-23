@@ -36,7 +36,6 @@ var Eisladen;
                 for (let index = 0; index < Eisladen.iceOrder.container.iceBalls.length; index++) {
                     let currentSillyIceBall = Eisladen.iceOrder.container.iceBalls[index];
                     IcePicker.stackedBalls[index] = Eisladen.IceBall.generateFromSillyJSON(currentSillyIceBall);
-                    console.log(IcePicker.stackedBalls[index]);
                 }
             }
         }
@@ -179,7 +178,6 @@ var Eisladen;
                         this.inAirIceBalls.pop();
                         for (let index = 0; index < IcePicker.stackedBalls.length; index++) {
                             let currentBall = IcePicker.stackedBalls[index];
-                            console.log(currentBall);
                             currentBall.position.add(Eisladen.ContainerSelector.offsetPerBall);
                             for (let topIndex = 0; topIndex < currentBall.stickingToppings.length; topIndex++) {
                                 currentBall.stickingToppings[topIndex].position.add(Eisladen.ContainerSelector.offsetPerBall);

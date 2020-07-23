@@ -58,7 +58,6 @@ var Eisladen;
             ContainerSelector.currentSelectedContainer += ContainerSelector.currentSelectedContainer > (ContainerSelector.containers.length - 1) ? -1 : ContainerSelector.currentSelectedContainer < 0 ? 1 : 0;
             ContainerSelector.moveContainerSelectionTo(ContainerSelector.currentSelectedContainer);
             Eisladen.iceOrder.container = ContainerSelector.containers[ContainerSelector.currentSelectedContainer];
-            console.log(ContainerSelector.currentSelectedContainer);
             ContainerSelector.containerPrice = ContainerSelector.containers[ContainerSelector.currentSelectedContainer].price;
         }
         static moveContainerSelectionTo(_value) {

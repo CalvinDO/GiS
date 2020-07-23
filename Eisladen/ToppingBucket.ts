@@ -119,6 +119,7 @@ namespace Eisladen {
             let newTopping: Topping = Topping.getPhysicalCloneFrom(this.topping, position, new Vector2D(0, 0));
             this.airToppings.push(newTopping);
             totalPriceWithoutContainer += this.topping.price;
+            Eisladen.updateLocalStorage();
         }
 
         public drawVisualContent(): void {
