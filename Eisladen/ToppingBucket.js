@@ -122,7 +122,6 @@ var Eisladen;
             this.sortPrice.setAttribute("style", "left: " + (this.sortPricePosition.x) + "px; top: " + (this.sortPricePosition.y) + "px");
             this.sortPrice.style.fontSize = this.dimensions.x / 7 + "px";
             this.updateTagColors();
-            console.log(this.sortHeadingPosition);
             document.body.append(this.sortPrice);
         }
         moveTags(_translation) {

@@ -26,7 +26,7 @@ namespace Eisladen {
         public static orderStartVelocity: Vector2D;
 
 
-       //public static baseURL: string = "http://localhost:8100";
+        //public static baseURL: string = "http://localhost:8100";
         public static baseURL: string = "https://dercalvino.herokuapp.com";
 
         public wheelRadius: number;
@@ -84,7 +84,6 @@ namespace Eisladen {
         public static async communicate(_sendURL: RequestInfo, _actionType: ActionTypes, _extraID: string | null): Promise<void> {
             _sendURL += "/" + ActionTypes[_actionType] + "?" + (_extraID != null ? "_id=" + _extraID : "");
             let response: Response = await fetch(_sendURL);
-            console.log(response.text())
             switch (_actionType) {
                 case ActionTypes.get:
                     IncomingOrderDisplay.iterateThroughJSON(await response.json());

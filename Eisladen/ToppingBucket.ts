@@ -157,7 +157,6 @@ namespace Eisladen {
             
             this.updateTagColors();
 
-            console.log(this.sortHeadingPosition);
             document.body.append(this.sortPrice);
         }
         public moveTags(_translation: Vector2D): void {

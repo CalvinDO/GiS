@@ -338,3 +338,36 @@ p.toppingSortPriceDisplay, p.iceSortPriceDisplay, p.containerPriceDisplay {
 #invisibleData {
     display: none !important;
 }
+
+
+#optionsDisplay div{
+   position: absolute;
+}
+#optionsDisplay div{
+    font-size: 300%;  
+    background-color: white;
+    position: absolute;
+    right: 5%;
+    font-size: 240%;
+    width: 22%;
+    
+    background-color: rgb(255, 238, 181);
+    text-align: center;
+    border-color: white;
+    border-style: solid;
+    color: inherit;
+    color: rgb(104, 58, 126);
+    text-decoration: none;
+}
+#optionsDisplay #warteschleife{
+    left: 4%;
+    top: 75%;
+}
+#optionsDisplay #löschen{
+    left: 57%;
+    top: 90%;
+}
+#optionsDisplay #absenden{
+    right: 4%;
+    top: 75%;
+}
