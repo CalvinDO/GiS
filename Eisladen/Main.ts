@@ -293,8 +293,6 @@ namespace Eisladen {
     function handleSubmit(_event: Event): void {
         communicate(baseURL, ActionTypes.set);
         versandIsDisplayed = true;
-        localStorage.clear();
-        location.reload();
     }
 
     async function communicate(_sendURL: RequestInfo, _actionType: ActionTypes): Promise<void> {
@@ -306,6 +304,8 @@ namespace Eisladen {
         _sendURL += "?" + query.toString();
 
         let response: Response = await fetch(_sendURL);
+        localStorage.clear();
+        location.reload();
     }
 
     function handleMouseDown(_event: MouseEvent): void {

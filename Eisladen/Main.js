@@ -196,8 +196,6 @@ var Eisladen;
     function handleSubmit(_event) {
         communicate(baseURL, Eisladen.ActionTypes.set);
         versandIsDisplayed = true;
-        localStorage.clear();
-        location.reload();
     }
     async function communicate(_sendURL, _actionType) {
         fakeFormData = new FormData(document.forms[0]);
@@ -207,6 +205,8 @@ var Eisladen;
         _sendURL += Eisladen.ActionTypes[_actionType];
         _sendURL += "?" + query.toString();
         let response = await fetch(_sendURL);
+        localStorage.clear();
+        location.reload();
     }
     function handleMouseDown(_event) {
         toppingPicker.checkMouseClick(_event.clientX, _event.clientY);
