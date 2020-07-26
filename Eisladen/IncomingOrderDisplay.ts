@@ -84,10 +84,9 @@ namespace Eisladen {
         public static async communicate(_sendURL: RequestInfo, _actionType: ActionTypes, _extraID: string | null): Promise<void> {
             _sendURL += "/" + ActionTypes[_actionType] + "?" + (_extraID != null ? "_id=" + _extraID : "");
             let response: Response = await fetch(_sendURL);
-            console.log(await response.text());
             switch (_actionType) {
                 case ActionTypes.get:
-                   // IncomingOrderDisplay.iterateThroughJSON(await response.json());
+                    IncomingOrderDisplay.iterateThroughJSON(await response.json());
                     break;
             }
         }

@@ -47,10 +47,9 @@ var Eisladen;
         static async communicate(_sendURL, _actionType, _extraID) {
             _sendURL += "/" + Eisladen.ActionTypes[_actionType] + "?" + (_extraID != null ? "_id=" + _extraID : "");
             let response = await fetch(_sendURL);
-            console.log(await response.text());
             switch (_actionType) {
                 case Eisladen.ActionTypes.get:
-                    // IncomingOrderDisplay.iterateThroughJSON(await response.json());
+                    IncomingOrderDisplay.iterateThroughJSON(await response.json());
                     break;
             }
         }
