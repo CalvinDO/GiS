@@ -46,8 +46,6 @@ namespace Eisladen {
             IncomingOrderDisplay.buttonLeft = <HTMLImageElement>document.querySelector("#switchLeft");
             IncomingOrderDisplay.buttonRight = <HTMLImageElement>document.querySelector("#switchRight");
 
-            console.log(IncomingOrderDisplay.buttonRight);
-
             IncomingOrderDisplay.buttonLeft.addEventListener("click", IncomingOrderDisplay.handleSwitchLeft);
             IncomingOrderDisplay.buttonRight.addEventListener("click", IncomingOrderDisplay.handleSwitchRight);
             this.checkForData();
@@ -73,11 +71,9 @@ namespace Eisladen {
                     IncomingOrderDisplay.currentSwitch = Switches.right;
                     break;
                 default:
-                    console.log("ärrör");
+                    console.log("error");
                     break;
             }
-
-            console.log(Switches[IncomingOrderDisplay.currentSwitch]);
         }
 
 

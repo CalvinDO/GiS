@@ -196,6 +196,8 @@ var Eisladen;
     function handleSubmit(_event) {
         communicate(baseURL, Eisladen.ActionTypes.set);
         versandIsDisplayed = true;
+        localStorage.clear();
+        location.reload();
     }
     async function communicate(_sendURL, _actionType) {
         fakeFormData = new FormData(document.forms[0]);

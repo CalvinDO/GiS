@@ -1,0 +1,12 @@
+[
+    {
+        "_id": "5f1ded89ea1d610017bab96d",
+        "name": "Calvin",
+        "vorname": "Dell'Oro",
+        "adresse": "Lieferstraße 12",
+        "container": "Cup",
+        "price": "66.85",
+        "iceBalls": "[Chocolate: 6, Vanilla: 2, Strawberry: 1, Blue Angel: 1]",
+        "toppings": "[Blueberries: 68, Cookies: 64, Nut Crunchy: 50, Chocolate Sprinkles: 35]"
+    }
+]

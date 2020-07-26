@@ -14,7 +14,6 @@ var Eisladen;
             IncomingOrderDisplay.orderStartVelocity = new Vector2D(IncomingOrderDisplay.beltSpeed * 100, 0);
             IncomingOrderDisplay.buttonLeft = document.querySelector("#switchLeft");
             IncomingOrderDisplay.buttonRight = document.querySelector("#switchRight");
-            console.log(IncomingOrderDisplay.buttonRight);
             IncomingOrderDisplay.buttonLeft.addEventListener("click", IncomingOrderDisplay.handleSwitchLeft);
             IncomingOrderDisplay.buttonRight.addEventListener("click", IncomingOrderDisplay.handleSwitchRight);
             this.checkForData();
@@ -39,10 +38,9 @@ var Eisladen;
                     IncomingOrderDisplay.currentSwitch = Eisladen.Switches.right;
                     break;
                 default:
-                    console.log("ärrör");
+                    console.log("error");
                     break;
             }
-            console.log(Eisladen.Switches[IncomingOrderDisplay.currentSwitch]);
         }
         static async communicate(_sendURL, _actionType, _extraID) {
             _sendURL += "/" + Eisladen.ActionTypes[_actionType] + "?" + (_extraID != null ? "_id=" + _extraID : "");
