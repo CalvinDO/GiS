@@ -1,5 +1,5 @@
 namespace Eisladen {
-    import Vector2D = Vector.Vector2D;
+    import Vector2D = IceVector.Vector2D;
     export class ToppingPicker {
         public static toppings: Topping[];
         public static toppingBuckets: ToppingBucket[] = [];

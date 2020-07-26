@@ -1,7 +1,7 @@
 "use strict";
 var Eisladen;
 (function (Eisladen) {
-    var Vector2D = Vector.Vector2D;
+    var Vector2D = IceVector.Vector2D;
     class ToppingBucket {
         constructor(_position, _dimensions, _topping) {
             this.currentFrame = 0;
@@ -106,7 +106,7 @@ var Eisladen;
             }
         }
         generateTags() {
-            let extraOffset = new Vector2D(-60, -this.dimensions.y);
+            let extraOffset = new Vector2D(-this.dimensions.x / 2, -this.dimensions.y);
             this.sortHeadingPosition = new Vector2D(this.position.x + this.dimensions.x / 2 + extraOffset.x, this.position.y + this.dimensions.y / 2 + extraOffset.y * 1.2);
             this.sortPricePosition = new Vector2D(this.position.x + this.dimensions.x / 2 + extraOffset.x, this.position.y + this.dimensions.y / 2 + extraOffset.y);
             this.sortHeading = document.createElement("h2");
@@ -120,7 +120,9 @@ var Eisladen;
             this.sortPrice.setAttribute("class", "toppingSortPriceDisplay");
             this.sortPrice.setAttribute("style", "width: " + this.dimensions.x + "px");
             this.sortPrice.setAttribute("style", "left: " + (this.sortPricePosition.x) + "px; top: " + (this.sortPricePosition.y) + "px");
+            this.sortPrice.style.fontSize = this.dimensions.x / 7 + "px";
             this.updateTagColors();
+            console.log(this.sortHeadingPosition);
             document.body.append(this.sortPrice);
         }
         moveTags(_translation) {

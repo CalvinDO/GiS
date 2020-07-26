@@ -1,5 +1,5 @@
 namespace Eisladen {
-    import Vector2D = Vector.Vector2D;
+    import Vector2D = IceVector.Vector2D;
 
     export class ContainerSelector {
         public static goldenRatio: number = 1.6180339;
@@ -96,7 +96,7 @@ namespace Eisladen {
             ContainerSelector.containerPrice = ContainerSelector.containers[ContainerSelector.currentSelectedContainer].price;
         }
         public static moveContainerSelectionTo(_value: number): void {
-            let offsetPercentage: number = 50 - (Math.round(_value) * ContainerSelector.containerWidthPercentage);
+            let offsetPercentage: number = 50 - (Math.round(_value) * ContainerSelector.containerWidthPercentage + ContainerSelector.containerWidthPercentage / 2);
             ContainerSelector.goalAbsolutePercentage = offsetPercentage;
         }
         public static iterateThroughContainerSelections(): void {

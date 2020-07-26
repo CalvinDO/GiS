@@ -1,7 +1,7 @@
 namespace Eisladen {
     import ContainerSelector = Eisladen.ContainerSelector;
     import IcePicker = Eisladen.IcePicker;
-    import Vector2D = Vector.Vector2D;
+    import Vector2D = IceVector.Vector2D;
 
     window.addEventListener("load", init);
     window.addEventListener("keydown", handleKeyDown);
@@ -78,7 +78,8 @@ namespace Eisladen {
 
     // let toSeller: HTMLDivElement;
 
-    let baseURL: string = "http://localhost:8100";
+    //let baseURL: string = "http://localhost:8100";
+    let baseURL: string = "https://dercalvino.herokuapp.com";
 
     function init(_event: Event): void {
         currentTime = lastFrameTime = startTime = Date.now();
@@ -303,13 +304,11 @@ namespace Eisladen {
         _sendURL += "?" + query.toString();
 
         let response: Response = await fetch(_sendURL);
-        let responseText: string = await response.text();
     }
 
     function handleMouseDown(_event: MouseEvent): void {
         toppingPicker.checkMouseClick(_event.clientX, _event.clientY);
 
-        /*
         if (versandIsDisplayed) {
             let xMin: number = canvas.width / 4;
             let xMax: number = canvas.width / 4 + canvas.width / 2;
@@ -319,7 +318,6 @@ namespace Eisladen {
                 versandIsDisplayed = false;
             }
         }
-        */
     }
 
     function drawBackground(_x: number, _y: number, _w: number, _h: number): void {

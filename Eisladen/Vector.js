@@ -1,6 +1,6 @@
 "use strict";
-var Vector;
-(function (Vector) {
+var IceVector;
+(function (IceVector) {
     class Vector2D {
         constructor(_x, _y) {
             this.setXY(_x, _y);
@@ -44,6 +44,6 @@ var Vector;
                 this.scale(1 / l);
         }
     }
-    Vector.Vector2D = Vector2D;
-})(Vector || (Vector = {}));
+    IceVector.Vector2D = Vector2D;
+})(IceVector || (IceVector = {}));
 //# sourceMappingURL=Vector.js.map

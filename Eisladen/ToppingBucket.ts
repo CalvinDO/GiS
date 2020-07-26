@@ -1,5 +1,5 @@
 namespace Eisladen {
-    import Vector2D = Vector.Vector2D;
+    import Vector2D = IceVector.Vector2D;
 
     export class ToppingBucket {
         public position: Vector2D;
@@ -89,7 +89,7 @@ namespace Eisladen {
                 }
             }
         }
-        
+
         public checkMouseClick(_x: number, _y: number): void {
             let hit: boolean = true;
             if (_x < this.position.x || _x > this.position.x + this.dimensions.x) {
@@ -138,7 +138,7 @@ namespace Eisladen {
             }
         }
         public generateTags(): void {
-            let extraOffset: Vector2D = new Vector2D(-60, -this.dimensions.y);
+            let extraOffset: Vector2D = new Vector2D(-this.dimensions.x / 2, -this.dimensions.y);
             this.sortHeadingPosition = new Vector2D(this.position.x + this.dimensions.x / 2 + extraOffset.x, this.position.y + this.dimensions.y / 2 + extraOffset.y * 1.2);
             this.sortPricePosition = new Vector2D(this.position.x + this.dimensions.x / 2 + extraOffset.x, this.position.y + this.dimensions.y / 2 + extraOffset.y);
             this.sortHeading = document.createElement("h2");
@@ -153,7 +153,11 @@ namespace Eisladen {
             this.sortPrice.setAttribute("style", "width: " + this.dimensions.x + "px");
 
             this.sortPrice.setAttribute("style", "left: " + (this.sortPricePosition.x) + "px; top: " + (this.sortPricePosition.y) + "px");
+            this.sortPrice.style.fontSize = this.dimensions.x/7 + "px";
+            
             this.updateTagColors();
+
+            console.log(this.sortHeadingPosition);
             document.body.append(this.sortPrice);
         }
         public moveTags(_translation: Vector2D): void {

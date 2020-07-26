@@ -1,5 +1,5 @@
 namespace Eisladen {
     export enum ActionTypes {
-        set, get, reset
+        set, get, reset, remove
     }
 }

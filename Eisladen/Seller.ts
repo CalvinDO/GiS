@@ -5,6 +5,8 @@ namespace Eisladen {
     export let sellerCanvas: HTMLCanvasElement;
     export let sellerCrc2: CanvasRenderingContext2D;
 
+    export let sellerBackgroundColor: string = "rgb(187, 255, 249)";
+
     export let incomingOrderRegion: HTMLDivElement;
 
     export let currentSellerTime: number;
@@ -15,6 +17,7 @@ namespace Eisladen {
     export let sellerTimeSinceStart: number;
 
     export interface Order {
+        _id: string;
         name: string;
         vorname: string;
         adresse: string;

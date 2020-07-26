@@ -12,7 +12,7 @@
     "@types/node": "^14.0.13"
   },
   "scripts": {
-    "start": "node Aufgabe11/Server.js remote"
+    "start": "node Eisladen/Server.js remote"
   },
   "repository": {
     "type": "git",

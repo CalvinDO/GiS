@@ -2,9 +2,7 @@ body {
     margin: 0;
     padding: 0;
     border: 0;
-
     overflow: hidden;
-
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
@@ -224,6 +222,27 @@ p.toppingSortPriceDisplay, p.iceSortPriceDisplay, p.containerPriceDisplay {
     left: 20%;
 }
 
+/*switchMenu arrow*/
+
+.switchMenuArrow {
+    position: relative;
+    width: 4%;
+    z-index: 99;
+}
+
+.switchMenuArrow:hover {
+    opacity: 50%;
+}
+
+.switchMenuArrow:nth-child(1) {
+    transform: rotate(180deg);
+    left: -20%;
+}
+
+.switchMenuArrow:nth-child(2) {
+    left: 20%;
+}
+
 #control-panel {
     position: absolute;
     height: 30%;
@@ -292,7 +311,7 @@ p.toppingSortPriceDisplay, p.iceSortPriceDisplay, p.containerPriceDisplay {
 #incomingOrder {
     position: absolute;
     z-index: 99;
-    width: 12%;
+    width: 10%;
     height: 20%;
     background-color: white;
     line-height: 10%;
@@ -304,10 +323,18 @@ p.toppingSortPriceDisplay, p.iceSortPriceDisplay, p.containerPriceDisplay {
 }
 
 #incomingOrder p {
-    font-size: 130%;
+    font-size: 100%;
 }
 
-#incomingOrder h2 {
-    padding-bottom: 8%;
+#incomingOrder #headerSection {
+    padding-bottom: 1%;
+    line-height: 0.5em;
 }
 
+#incomingOrder #dataSection {
+    line-height: 0.25em;
+}
+
+#invisibleData {
+    display: none !important;
+}

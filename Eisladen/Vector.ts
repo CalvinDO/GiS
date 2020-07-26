@@ -1,4 +1,4 @@
-namespace Vector {
+namespace IceVector {
     export class Vector2D {
         public x: number;
         public y: number;

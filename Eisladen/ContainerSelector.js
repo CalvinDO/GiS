@@ -1,7 +1,7 @@
 "use strict";
 var Eisladen;
 (function (Eisladen) {
-    var Vector2D = Vector.Vector2D;
+    var Vector2D = IceVector.Vector2D;
     class ContainerSelector {
         static init() {
             ContainerSelector.buttonRight = document.querySelector("#right");
@@ -61,7 +61,7 @@ var Eisladen;
             ContainerSelector.containerPrice = ContainerSelector.containers[ContainerSelector.currentSelectedContainer].price;
         }
         static moveContainerSelectionTo(_value) {
-            let offsetPercentage = 50 - (Math.round(_value) * ContainerSelector.containerWidthPercentage);
+            let offsetPercentage = 50 - (Math.round(_value) * ContainerSelector.containerWidthPercentage + ContainerSelector.containerWidthPercentage / 2);
             ContainerSelector.goalAbsolutePercentage = offsetPercentage;
         }
         static iterateThroughContainerSelections() {

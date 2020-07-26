@@ -1,7 +1,7 @@
 "use strict";
 var Eisladen;
 (function (Eisladen) {
-    var Vector2D = Vector.Vector2D;
+    var Vector2D = IceVector.Vector2D;
     class IncomingOrder {
         constructor(_order, _position, _velocity) {
             this.order = _order;
@@ -17,6 +17,10 @@ var Eisladen;
             let name = document.createElement("h2");
             let vorname = document.createElement("h2");
             let adresse = document.createElement("h2");
+            let headerDiv = document.createElement("div");
+            let dataDiv = document.createElement("div");
+            headerDiv.setAttribute("id", "headerSection");
+            dataDiv.setAttribute("id", "dataSection");
             name.innerHTML = _order.name;
             vorname.innerHTML = _order.vorname;
             adresse.innerHTML = _order.adresse;
@@ -36,13 +40,15 @@ var Eisladen;
                 topping.innerHTML = _order.toppings[index];
                 toppings.append(topping);
             }
-            this.element.append(name);
-            this.element.append(vorname);
-            this.element.append(adresse);
-            this.element.append(price);
-            this.element.append(container);
-            this.element.append(iceBalls);
-            this.element.append(toppings);
+            headerDiv.append(name);
+            headerDiv.append(vorname);
+            headerDiv.append(adresse);
+            this.element.append(headerDiv);
+            dataDiv.append(price);
+            dataDiv.append(container);
+            dataDiv.append(iceBalls);
+            dataDiv.append(toppings);
+            this.element.append(dataDiv);
         }
         calculate() {
             if (this.toggleState == 0) {
@@ -53,7 +59,8 @@ var Eisladen;
                 }
             }
             if (this.position.y >= Eisladen.IncomingOrderDisplay.togglePoint.y && this.toggleState == 1) {
-                switch (Eisladen.IncomingOrderDisplay.currentSwitch) {
+                this.switchState = Eisladen.IncomingOrderDisplay.currentSwitch;
+                switch (this.switchState) {
                     case Eisladen.Switches.left:
                         this.velocitiy.x = -this.velocitiy.y;
                         this.velocitiy.y = 0;
@@ -78,6 +85,10 @@ var Eisladen;
                 }
             }
             this.position.add(new Vector2D(this.velocitiy.x * Eisladen.deltaSellerTime, this.velocitiy.y * Eisladen.deltaSellerTime));
+            if (this.position.y > Eisladen.sellerCanvas.height && !this.removed) {
+                Eisladen.IncomingOrderDisplay.communicate(Eisladen.IncomingOrderDisplay.baseURL, Eisladen.ActionTypes.remove, this.order._id);
+                this.removed = true;
+            }
         }
         updateElementPosition() {
             this.element.style.left = this.position.x + "px";

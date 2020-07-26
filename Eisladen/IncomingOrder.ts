@@ -1,5 +1,5 @@
 namespace Eisladen {
-    import Vector2D = Vector.Vector2D;
+    import Vector2D = IceVector.Vector2D;
 
     export class IncomingOrder {
         public element: HTMLDivElement;
@@ -9,6 +9,9 @@ namespace Eisladen {
         public velocitiy: Vector2D;
 
         public toggleState: number;
+        public switchState: Switches;
+
+        public removed: boolean;
 
         constructor(_order: Order, _position: Vector2D, _velocity: Vector2D) {
             this.order = _order;
@@ -28,6 +31,11 @@ namespace Eisladen {
             let name: HTMLHeadingElement = document.createElement("h2");
             let vorname: HTMLHeadingElement = document.createElement("h2");
             let adresse: HTMLHeadingElement = document.createElement("h2");
+
+            let headerDiv: HTMLDivElement = document.createElement("div");
+            let dataDiv: HTMLDivElement = document.createElement("div");
+            headerDiv.setAttribute("id", "headerSection");
+            dataDiv.setAttribute("id", "dataSection");
 
             name.innerHTML = _order.name;
             vorname.innerHTML = _order.vorname;
@@ -52,13 +60,18 @@ namespace Eisladen {
                 toppings.append(topping);
             }
 
-            this.element.append(name);
-            this.element.append(vorname);
-            this.element.append(adresse);
-            this.element.append(price);
-            this.element.append(container);
-            this.element.append(iceBalls);
-            this.element.append(toppings);
+            headerDiv.append(name);
+            headerDiv.append(vorname);
+            headerDiv.append(adresse);
+
+            this.element.append(headerDiv);
+
+            dataDiv.append(price);
+            dataDiv.append(container);
+            dataDiv.append(iceBalls);
+            dataDiv.append(toppings);
+
+            this.element.append(dataDiv);
         }
         public calculate(): void {
             if (this.toggleState == 0) {
@@ -69,7 +82,9 @@ namespace Eisladen {
                 }
             }
             if (this.position.y >= IncomingOrderDisplay.togglePoint.y && this.toggleState == 1) {
-                switch (IncomingOrderDisplay.currentSwitch) {
+                this.switchState = IncomingOrderDisplay.currentSwitch;
+
+                switch (this.switchState) {
                     case Switches.left:
                         this.velocitiy.x = - this.velocitiy.y;
                         this.velocitiy.y = 0;
@@ -95,6 +110,10 @@ namespace Eisladen {
                 }
             }
             this.position.add(new Vector2D(this.velocitiy.x * deltaSellerTime, this.velocitiy.y * deltaSellerTime));
+            if (this.position.y > sellerCanvas.height && !this.removed) {
+                IncomingOrderDisplay.communicate(IncomingOrderDisplay.baseURL, ActionTypes.remove, this.order._id);
+                this.removed = true;
+            }
         }
         public updateElementPosition(): void {
             this.element.style.left = this.position.x + "px";

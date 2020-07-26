@@ -1,7 +1,7 @@
 "use strict";
 var Eisladen;
 (function (Eisladen) {
-    var Vector2D = Vector.Vector2D;
+    var Vector2D = IceVector.Vector2D;
     class Topping {
         constructor(_name, _price, _size, _color, _shape, _position, _velocitiy) {
             this.name = _name;

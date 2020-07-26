@@ -2,6 +2,7 @@
 var Eisladen;
 (function (Eisladen) {
     window.addEventListener("load", init);
+    Eisladen.sellerBackgroundColor = "rgb(187, 255, 249)";
     function init(_event) {
         selectTags();
         Eisladen.currentSellerTime = Eisladen.lastFrameSellerTime = Eisladen.startSellerTime = Date.now();

@@ -1,7 +1,7 @@
 "use strict";
 var Eisladen;
 (function (Eisladen) {
-    var Vector2D = Vector.Vector2D;
+    var Vector2D = IceVector.Vector2D;
     class IceBucket {
         constructor(_position, _dimensions, _iceSort) {
             this.maxTimeTillCutOutToVanish = 4000;

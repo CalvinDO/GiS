@@ -3,7 +3,7 @@ var Eisladen;
 (function (Eisladen) {
     var ContainerSelector = Eisladen.ContainerSelector;
     var IcePicker = Eisladen.IcePicker;
-    var Vector2D = Vector.Vector2D;
+    var Vector2D = IceVector.Vector2D;
     window.addEventListener("load", init);
     window.addEventListener("keydown", handleKeyDown);
     window.addEventListener("keyup", handleKeyUp);
@@ -24,7 +24,8 @@ var Eisladen;
     let totalPriceDisplay;
     let totalPriceFromLocalStorage = 0;
     // let toSeller: HTMLDivElement;
-    let baseURL = "http://localhost:8100";
+    //let baseURL: string = "http://localhost:8100";
+    let baseURL = "https://dercalvino.herokuapp.com";
     function init(_event) {
         Eisladen.currentTime = Eisladen.lastFrameTime = Eisladen.startTime = Date.now();
         ContainerSelector.init();
@@ -204,21 +205,18 @@ var Eisladen;
         _sendURL += Eisladen.ActionTypes[_actionType];
         _sendURL += "?" + query.toString();
         let response = await fetch(_sendURL);
-        let responseText = await response.text();
     }
     function handleMouseDown(_event) {
         toppingPicker.checkMouseClick(_event.clientX, _event.clientY);
-        /*
         if (versandIsDisplayed) {
-            let xMin: number = canvas.width / 4;
-            let xMax: number = canvas.width / 4 + canvas.width / 2;
-            let yMin: number = canvas.height / 4;
-            let yMax: number = canvas.height / 4 + canvas.height / 2;
+            let xMin = Eisladen.canvas.width / 4;
+            let xMax = Eisladen.canvas.width / 4 + Eisladen.canvas.width / 2;
+            let yMin = Eisladen.canvas.height / 4;
+            let yMax = Eisladen.canvas.height / 4 + Eisladen.canvas.height / 2;
             if ((_event.clientX < xMin || _event.clientX > xMax) || (_event.clientY < yMin || _event.clientY > yMax)) {
                 versandIsDisplayed = false;
             }
         }
-        */
     }
     function drawBackground(_x, _y, _w, _h) {
         Eisladen.crc2.beginPath();

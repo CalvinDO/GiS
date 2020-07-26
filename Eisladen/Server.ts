@@ -1,6 +1,7 @@
 import * as Http from "http";
 import * as url from "url";
 import * as Mongo from "mongodb";
+import { ParsedUrlQuery } from "querystring";
 
 export namespace Eisladen {
     interface IceData {
@@ -15,7 +16,7 @@ export namespace Eisladen {
         port = 8100;
     }
 
-    let databaseURLs: string[] = ["mongodb://localhost:27017", "mongodb+srv://CalvinDO:gismongo@dercalvino.d1jir.mongodb.net/Test?retryWrites=true&w=majority"];
+    let databaseURLs: string[] = ["mongodb://localhost:27017", "mongodb+srv://CalvinDO:gismongo@dercalvino.d1jir.mongodb.net/Eisladen?retryWrites=true&w=majority"];
 
     startServer(port);
     connectToDatabse(databaseURLs);
@@ -88,15 +89,23 @@ export namespace Eisladen {
                 console.log("reset reset reset alarm");
                 iceDataCollection.drop();
                 break;
+            case "/remove":
+                removeIceData(q.query);
+                console.log("item successfully removed");
+                break;
             default:
                 console.log("default");
+                break;
         }
         _response.end();
     }
     function storeData(_order: IceData): void {
         iceDataCollection.insertOne(_order);
     }
-
+    //Inspiriert von Lukas Scheuerles 
+    function removeIceData(_query: ParsedUrlQuery): void {
+        iceDataCollection.deleteOne({ "_id": new Mongo.ObjectID(<string>_query["_id"]) });
+    }
     async function retrieveIceData(_response: Http.ServerResponse): Promise<IceData[]> {
         let output: IceData[] = await iceDataCollection.find().toArray();
         return output;

@@ -11,7 +11,7 @@ var Eisladen;
     if (!port) {
         port = 8100;
     }
-    let databaseURLs = ["mongodb://localhost:27017", "mongodb+srv://CalvinDO:gismongo@dercalvino.d1jir.mongodb.net/Test?retryWrites=true&w=majority"];
+    let databaseURLs = ["mongodb://localhost:27017", "mongodb+srv://CalvinDO:gismongo@dercalvino.d1jir.mongodb.net/Eisladen?retryWrites=true&w=majority"];
     startServer(port);
     connectToDatabse(databaseURLs);
     async function connectToDatabse(_databaseURLs) {
@@ -70,13 +70,22 @@ var Eisladen;
                 console.log("reset reset reset alarm");
                 iceDataCollection.drop();
                 break;
+            case "/remove":
+                removeIceData(q.query);
+                console.log("item successfully removed");
+                break;
             default:
                 console.log("default");
+                break;
         }
         _response.end();
     }
     function storeData(_order) {
         iceDataCollection.insertOne(_order);
+    }
+    //Inspiriert von Lukas Scheuerles 
+    function removeIceData(_query) {
+        iceDataCollection.deleteOne({ "_id": new Mongo.ObjectID(_query["_id"]) });
     }
     async function retrieveIceData(_response) {
         let output = await iceDataCollection.find().toArray();
